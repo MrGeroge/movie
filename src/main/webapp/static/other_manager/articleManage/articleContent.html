@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻内容</title>
+    <link href="../../../assets/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../assets/admin/css/froala_editor.min.css" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        section {
+            width: 100%;
+            margin: auto;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <section id="editor">
+        <textarea id='edit' style="margin-top: 30px;">
+        </textarea>
+    </section>
+
+    <script src="../../../assets/admin/js/libs/jquery-1.11.1.min.js"></script>
+    <script src="../../../assets/admin/js/froala_editor.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="../../../assets/admin/js/froala_editor_ie8.min.js"></script>
+    <![endif]-->
+    <script src="../../../assets/admin/js/plugins/tables.min.js"></script>
+    <script src="../../../assets/admin/js/plugins/lists.min.js"></script>
+    <script src="../../../assets/admin/js/plugins/colors.min.js"></script>
+    <script src="../../../assets/admin/js/plugins/media_manager.min.js"></script>
+    <script src="../../../assets/admin/js/plugins/font_family.min.js"></script>
+    <script src="../../../assets/admin/js/plugins/font_size.min.js"></script>
+    <script src="../../../assets/admin/js/plugins/block_styles.min.js"></script>
+    <script src="../../../assets/admin/js/plugins/video.min.js"></script>
+    <script src="../../../assets/admin/js/langs/zh_cn.js"></script>
+    <script src="../../ip.js"></script>
+    <!--<script src="getArticleContent.js"></script>-->
+
+    <script>
+        $(document).ready(function(){
+            $('#edit').editable({
+                inlineMode: false,
+                alwaysBlank: true,
+                language:"zh_cn",
+                imageUploadURL: ip.uploadImg,
+                enableScript:false
+                //mediaManager:false
+            });
+
+            /*htmlCode = $('#edit').editable('getHTML', true, true);
+            console.log(htmlCode);*/
+        });
+
+        function returnHtmlCode(){
+            return $('#edit').editable('getHTML',true,true);
+        }
+
+        function setHtmlCode(content){
+            $('#edit').editable('setHTML',content);
+        }
+
+    </script>
+</body>
+</html>

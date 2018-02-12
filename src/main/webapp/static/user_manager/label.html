@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标签管理</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/admin/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/admin/themes/icon.css" />
+    <script type="text/javascript" src="../../assets/admin/jquery.min.js"></script>
+    <script type="text/javascript" src="../../assets/admin/jquery.easyui.min.js"></script>
+
+</head>
+<body>
+
+    <div id="label">
+        <form id="ff" method="post">
+            <input id="label_name" class="easyui-textbox" type="text" name="labelName"style="width:300px">&nbsp;&nbsp;
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="addLabel('label_list')">添加标签</a>
+        </form>
+
+        <br><br>
+        <div class="easyui-panel label_item"style="width:400px">
+            <div id="label_opt">
+                <a href="javascript:void(0)" class="easyui-linkbutton"
+                   data-options="iconCls:'icon-application-edit',plain:true"
+                   onclick="openWin('label_list')">修改</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton"
+                   data-options="iconCls:'icon-remove',plain:true"
+                   onclick="removeLabel('label_list')">删除</a>
+            </div>
+
+            <table id="label_list" class="easyui-datagrid" title="标签列表"
+                    data-options="toolbar:'#label_opt'">
+                <thead>
+                    <tr>
+                        <th data-options="field:'id',width:80"hidden="hidden">ID</th>
+                        <th data-options="field:'labelName',width:200">标签名</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div id="label_win" class="easyui-window" title="修改标签"
+             data-options="collapsible:false,minimizable:false,maximizable:false,iconCls:'icon-save',closed:true">
+            <form id="fu"method="post">
+                <input id="label_id" class="easyui-textbox" type="text" name="labelId"hidden="hidden">
+                <input id="label_update_name" class="easyui-textbox" type="text" name="labelName"style="width:300px">&nbsp;&nbsp;
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="editLabel('label_list')">确定</a>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#label_list').datagrid({
+                url:'test.json',
+                rownumbers:true,
+                collapsible:true,
+                singleSelect: true,
+                method:'get'
+            });
+
+        });
+
+        function addLabel(id){
+            var flag = true;
+            var labelName = $("input[id='label_name']").val();
+
+            if(labelName != null && labelName != ""){
+                if($.messager.confirm('您确定添加标签？')) {
+                    var labelItems = $('#' + id).datagrid('getData');
+
+                    $.each(labelItems, function (index, item) {
+                        if (labelName == item.labelName) {
+                            flag = false;
+                            alert('已存在该标签');
+                        }
+                    });
+
+                    if (flag == true) {
+                        $('#ff').form('submit', {
+                            url: '',
+                            success: function () {
+                                $.messager.show({
+                                    title: '提示',
+                                    msg: '添加成功',
+                                    showType: 'slide',
+                                    style: {
+                                        right: '',
+                                        top: document.body.scrollTop + document.documentElement.scrollTop,
+                                        bottom: ''
+                                    }
+                                });
+
+                                //标签列表重新加载
+                                $('#label_list').datagrid('reload');
+                            }
+                        });
+                    }
+                }
+            }
+        }
+
+
+
+        function openWin(id){
+            var label_selected = $('#'+id).datagrid('getSelected');
+            if(label_selected){
+                var form = $('#fu').form();
+                form.setValue("labelName",label_selected.labelName);
+                form.setValue("id",label_selected.id);
+                $('#label_win').window('open');
+            }else{
+                $.messager.alert({
+                    title:'提示',
+                    msg:'请先选择一个标签',
+                    icon:'warning'
+                });
+            }
+        }
+
+        function editLabel(id){
+            var flag = true;
+            var labelName = $("input[id='label_update_name']").val();
+
+            if(labelName != null && labelName != ""){
+                if($.messager.confirm('您确定修改标签？')) {
+                    var labelItems = $('#' + id).datagrid('getData');
+
+                    $.each(labelItems, function (index, item) {
+                        if (labelName == item.labelName) {
+                            flag = false;
+                            alert('已存在该标签');
+                        }
+                    });
+
+                    if (flag == true) {
+                        $('#f').form('submit', {
+                            url: '',
+                            success: function () {
+                                $.messager.show({
+                                    title: '提示',
+                                    msg: '修改成功',
+                                    showType: 'slide',
+                                    style: {
+                                        right: '',
+                                        top: document.body.scrollTop + document.documentElement.scrollTop,
+                                        bottom: ''
+                                    }
+                                });
+
+                                //标签列表重新加载
+                                $('#label_list').datagrid('reload');
+                            }
+                        });
+                    }
+                }
+            }
+
+        }
+
+        function removeLabel(id){
+            var label_selected = $('#'+id).datagrid('getSelected');
+            if(label_selected){
+                if($.messager.confirm('您确认删除该标签？')) {
+                    var label_id = JSON.stringify(label_selected.id);
+                    $.ajax({
+                        url:'',
+                        type:'POST',
+                        contentType:'application/json',
+                        data:label_id,
+                        success:function(){
+                            $.messager.show({
+                                title:'提示',
+                                msg:'删除成功',
+                                showType:'slide',
+                                style:{
+                                    right:'',
+                                    top:document.body.scrollTop+document.documentElement.scrollTop,
+                                    bottom:''
+                                }
+                            });
+                        }
+                    });
+                }
+            }else{
+                $.messager.alert({
+                    title:'提示',
+                    msg:'请先选择一个标签',
+                    icon:'warning'
+                });
+            }
+        }
+    </script>
+</body>
+</html>

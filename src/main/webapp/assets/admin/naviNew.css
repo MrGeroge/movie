@@ -1,0 +1,43 @@
+#north {
+	background-color: #7AAA27;
+    /* border-bottom: 2px solid #CCCCCC; */
+    clear: both;
+    height: 35px;
+    margin: 0;
+    width: 100%;
+    background:url(bg_index.bmp) repeat-x;
+}
+
+/* #TopNavLogo {
+	float: left;
+    margin: 1px 10px;
+    color: #E1E1E1;
+    font-size: 20px;
+    text-decoration: none;
+} */
+#TopNavLogo {
+	float: left;
+    margin: 1px 10px;
+    color: white;
+    FONT-FAMILY: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight : 800;
+    text-shadow:1px 1px rgba(0,0,0,.1);
+    margin-top: 6px;
+    text-decoration: none;
+}
+
+#TopNavAbout {
+    float: right;
+    margin-bottom: 0;
+    margin-top: 7px;
+}
+
+#TopNavAbout a {
+	color: white;
+    margin: 0 1px 0 0;
+    padding: 4px 1px;
+    text-decoration: none;
+    FONT-FAMILY: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+}
+

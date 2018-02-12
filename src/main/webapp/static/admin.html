@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影节信息管理</title>
+    <link rel="stylesheet" type="text/css" href="../assets/admin/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/admin/themes/icon.css" />
+    <link href="../assets/admin/style/admin.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../assets/admin/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/admin/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../assets/admin/js/admin_layout.js"></script>
+</head>
+<body class="easyui-layout" style="overflow-y: hidden" >
+    <!--头部-->
+    <div data-options="region:'north',split:true,border:false" class="header" >
+        <span class="header_title">电影节信息管理</span>
+        <span class="header_right">欢迎 XXX &nbsp;<a href="#" id="editpass"> 修改密码 &nbsp;</a> <a href="#" id="loginOut">  注销</a></span>
+    </div>
+    <!--头部结束-->
+
+    <!--尾部-->
+    <div class="footer" data-options="region:'south'">
+        Design By STrivel
+    </div>
+    <!--尾部结束-->
+
+    <!--左侧导航-->
+    <div data-options="region:'west',split:true" title="导航菜单" class='left_nav'  id="west">
+        <!--<div class="easyui-accordion" data-options="fit:true,border:false">-->
+        <div id="navTree">
+            <!--  导航内容 -->
+        </div>
+
+    </div>
+    <!--左侧导航结束-->
+
+    <!--主界面-->
+    <div id="mainPanle" data-options="region:'center'" style="background: #eee; overflow-y:hidden">
+        <div id="tabs" class="easyui-tabs"  data-options="fit:true,border:false" >
+            <div title="欢迎使用" style="padding:20px;overflow:hidden;" id="home">
+
+                <h1>欢迎使用此系统</h1>
+
+            </div>
+        </div>
+    </div>
+
+    <!--修改密码窗口-->
+    <div id="w" class="easyui-window" title="修改密码" data-options="collapsible:false,minimizable:false,maximizable:false,iconCls:'icon-save'" style="width: 300px; height: 150px; padding: 5px;
+        background: #fafafa;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'center',border:false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
+                <table cellpadding=3>
+                    <tr>
+                        <td>新密码：</td>
+                        <td><input id="txtNewPass" type="Password" class="txt01" /></td>
+                    </tr>
+                    <tr>
+                        <td>确认密码：</td>
+                        <td><input id="txtRePass" type="Password" class="txt01" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div data-options="region:'south',border:false" style="text-align: right; height: 30px; line-height: 30px;">
+                <a id="btnEp" class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" >
+                    确定</a> <a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)"
+                              onclick="closeLogin()">取消</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

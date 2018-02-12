@@ -1,0 +1,754 @@
+/*
+ * iconfont 设置
+ */
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Ffonts%2Ficonfont.eot'); /* IE9*/
+  src: url('http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Ffonts%2Ficonfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Ffonts%2Ficonfont.woff') format('woff'), /* chrome、firefox */ url('http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Ffonts%2Ficonfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Ffonts%2Ficonfont.svg#iconfont') format('svg');
+}
+
+/* iOS 4.1- */
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * flexslider
+ */
+.flexslider {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  background: url(http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fslide%2Floading.gif) 50% no-repeat;
+  margin-bottom: 30px;
+}
+
+.slides {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding-left: 0;
+}
+
+.slides li {
+  height: 400px;
+}
+
+.flex-control-nav {
+  position: absolute;
+  bottom: 10px;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+}
+
+.flex-control-nav li {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 5px;
+  *display: inline;
+  zoom: 1;
+}
+
+.flex-control-nav a {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 40px;
+  overflow: hidden;
+  background: url(http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fslide%2Fdot.png) right 0 no-repeat;
+  cursor: pointer;
+}
+
+.flex-control-nav .flex-active {
+  background-position: 0 0;
+}
+
+.flex-direction-nav {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  top: 45%;
+}
+
+.flex-direction-nav li a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  position: absolute;
+}
+
+.flex-direction-nav li a.flex-prev {
+  left: 40px;
+  background: url(http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fslide%2Fprev.png) center center no-repeat;
+}
+
+.flex-direction-nav li a.flex-next {
+  right: 40px;
+  background: url(http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fslide%2Fnext.png) center center no-repeat;
+> > > > > > > 78 a9693ba9e50ab5783e1649977e5896bd2d323c
+}
+
+/*
+ * 全局设置
+ */
+body {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+dl, dt, dd {
+  margin: 0;
+  width: 100px;
+}
+
+.m-left {
+  float: left;
+}
+
+.m-right {
+  float: right;
+}
+
+/*
+ * 导航栏
+ */
+.m-navbar {
+  width: 100%;
+  min-width: 1200px;
+  background-color: #1A1311;
+  box-shadow: 4px 0 4px 4px #aaa;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8;
+}
+
+.m-navbar-container {
+  margin: 0 auto;
+  width: 1100px;
+}
+
+.m-navbar-container:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.m-navbar-container > * {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  float: right;
+}
+
+.m-navbar-container span {
+  color: #ffffff;
+}
+
+.m-navbar-container a {
+  color: white;
+}
+
+.m-navbar-container a:hover {
+  color: #00b3ee;
+}
+
+.m-navbar-lang {
+  margin: 0 30px;
+}
+
+.m-navbar-commit, .m-navbar-search {
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.m-navbar-search {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.m-navbar-commit i {
+  color: #fff;
+  /*margin-left: -35px;*/
+}
+
+/*
+ * 导航头部
+ */
+.m-header {
+  width: 100%;
+  min-width: 1200px;
+  padding-top: 100px;
+  margin-bottom: 30px;
+}
+
+.m-header-content {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.m-header-content:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.m-header-logo {
+  display: inline-block;
+  float: left;
+}
+
+.m-header-logo img {
+  width: 120px;
+  height: 60px;
+}
+
+.m-header-nav-list {
+  float: right;
+  margin: 16px 0;
+  z-index: 5;
+}
+
+.m-header-nav-list > div {
+  height: 30px;
+  overflow: hidden;
+  -webkit-transition: height 1s;
+  -moz-transition: height 1s;
+  -o-transition: height 1s;
+  transition: height 1s;
+}
+
+.m-header-nav-list > div:hover {
+  height: 250px;
+  -webkit-transition: height 1s;
+  -moz-transition: height 1s;
+  -o-transition: height 1s;
+  transition: height 1s;
+}
+
+.m-header-nav-list > div:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.m-header-nav-list dl {
+  display: inline-block;
+  float: left;
+  margin-bottom: 0;
+}
+
+.m-header-nav-list dt {
+  display: block;
+  margin-bottom: 20px;
+  height: 30px;
+}
+
+.m-header-nav-list dt a {
+  display: block;
+  color: #000;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  font: bolder 16px/30px 'Microsoft Yhei';
+}
+
+.m-header-nav-list dd {
+  display: block;
+  height: 30px;
+}
+
+.m-header-nav-list dd a {
+  display: block;
+  color: #000;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  font: 12px/30px 'Microsoft Yhei';
+}
+
+.m-header-nav-list dd a:hover {
+  display: block;
+  color: #FEE449;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  font: 12px/30px 'Microsoft Yhei';
+}
+
+/*
+ * 最新咨询
+ */
+.m-zixun {
+  width: 100%;
+  min-width: 1200px;
+  margin-bottom: 20px;
+}
+
+.m-zixun:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.m-zixun-pic {
+  width: 66.6%;
+  float: left;
+}
+
+.m-zixun-row {
+  width: 100%;
+}
+
+.m-zixun-row:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.m-zixun-img-wrap {
+  float: left;
+  width: 50%;
+  padding-top: 25%;
+  overflow: hidden;
+  position: relative;
+}
+
+.m-zixun-img-wrap img {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2px;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.m-bankuai {
+  width: 33.3%;
+  float: left;
+  vertical-align: middle;
+}
+
+.m-bankuai-unit {
+  width: 33.3%;
+  padding-top: 32.8%;
+  position: relative;
+  background-color: #FED10B;
+  box-sizing: border-box;
+  border: 1px solid #ffffff;
+  float: left;
+}
+
+.m-bankuai-unit p {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.m-bankuai-unit span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*
+ * 赞助商底部
+ */
+.m-bottom {
+  width: 100%;
+  min-width: 1200px;
+  margin-bottom: 30px;
+}
+
+.m-bottom:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.m-bottom-content {
+  margin: 0 auto;
+  width: 1100px;
+}
+
+.m-bottom-content:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.m-bottom-content > div {
+  float: left;
+}
+
+.m-bottom-sponsors-logo {
+  width: 129px;
+  margin: 25px 0;
+}
+
+.m-bottom-sponsors-logo img {
+  width: 129px;
+  height: 59px;
+}
+
+.m-bottom-label {
+  margin: 15px 0 15px 20px;
+}
+
+.m-bottom-label p {
+  text-align: center;
+  height: 79px;
+  width: 20px;
+  margin: 0;
+  color: #000;
+  font: bolder 12px/16px "Microsoft YaHei";
+  background-color: #FED108;
+}
+
+.m-bottom-label-end {
+  height: 79px;
+  width: 10px;
+  margin: 15px 0 15px 10px;
+  background-color: #FED108;
+}
+
+.m-bottom-sponsors-list {
+  margin: 15px 0;
+  position: relative;
+  width: 875px;
+    height:79px;
+  overflow: hidden;
+}
+
+.m-bottom-sponsors-list ul {
+  height: 79px;
+  padding-left: 0;
+  position: relative;
+}
+
+.m-bottom-sponsors-list li {
+  display: block;
+  float: left;
+  width: 120px;
+  height: 79px;
+  margin-left: 5px;
+}
+
+.m-bottom-sponsors-list img {
+  width: 120px;
+  height: 79px;
+}
+
+/*
+ * 底部版权信息
+ */
+.m-footer {
+  width: 100%;
+  min-width: 1200px;
+  height: 183px;
+  background-image: url('http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fbottom.png');
+  color: #ddd;
+  font-size: 14px;
+}
+
+.m-footer-content {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.m-footer-content:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.m-footer-content > div {
+  width: 33.3%;
+  float: left;
+}
+
+.m-footer-content {
+  padding: 0;
+}
+
+.m-footer-en {
+  margin-top: 20px;
+  line-height: 30px;
+}
+
+.m-footer-ul {
+  margin-top: 40px;
+  line-height: 20px;
+}
+
+/*
+ * 遮罩层
+ */
+.m-mask {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, .6);
+}
+
+/*
+ * 注册页样式
+ */
+.m-register, .m-login, .m-register-success {
+  display: none;
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  z-index: 11;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 2px solid #cccccc;
+  padding: 40px;
+}
+
+.m-register-logo, .m-login-logo {
+  position: absolute;
+  top: -61px;
+  left: -110px;
+}
+
+.m-register-close, .m-login-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: rgba(204, 204, 204, .3);
+}
+
+.m-register-close img, .m-login-close img {
+  width: 12px;
+  height: 12px;
+  margin: 4px;
+}
+
+.m-register-logo img, .m-login-logo img {
+  width: 129px;
+  height: 61px;
+}
+
+.m-register-form form > *, .m-login-form form > * {
+  display: block;
+  width: 230px;
+  height: 20px;
+  margin: 15px;
+}
+
+.m-register-input, .m-login-input {
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  font-size: 12px;
+  color: #cccccc;
+  outline-color: #FED108;
+}
+
+.m-register-subscribe {
+  color: #cccccc;
+  font-size: 12px;
+}
+
+.m-register-submit, .m-login-form input[type=submit] {
+  height: 30px;
+  background-color: #FED108;
+  border: none;
+  font-size: 14px;
+}
+
+.m-register-policy > * {
+  display: inline-block;
+  color: #cccccc;
+  font-size: 12px;
+}
+
+.m-register-policy p {
+  margin: 0;
+}
+
+.m-register-policy a {
+  color: #cccccc;
+  text-decoration: underline;
+}
+
+.m-register-policy a:hover {
+  color: lightblue;
+  text-decoration: underline;
+}
+
+.m-register-or {
+  text-align: center;
+}
+
+.m-register-or p {
+  color: #cccccc;
+  font-size: 12px;
+  line-height: 20px;
+  width: 132px;
+  height: 20px;
+  margin: 0;
+  display: inline-block;
+  background-image: url('http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fslide%2For.png');
+}
+
+.m-register-form input[type=button] {
+  height: 30px;
+  font-size: 14px;
+  border: none;
+}
+
+/*
+ * 登录页样式
+ */
+.m-login-me {
+  color: #cccccc;
+  font-size: 12px;
+}
+
+.m-login-me span {
+  margin-left: 10px;
+}
+
+.m-login-me a {
+  color: #CCCCCC;
+}
+
+.m-login-me a:hover {
+  color: lightblue;
+}
+
+.m-login-register {
+  color: #CCCCCC;
+  font-size: 12px;
+}
+
+.m-login-register a {
+  color: #CCCCCC;
+  text-decoration: underline;
+}
+
+.m-login-register a:hover {
+  color: lightblue;
+  font-size: 12px;
+}
+
+/*
+ * 注册成功样式
+ */
+.m-success-hint {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.m-success-hint p {
+  display: inline-block;
+  color: #cccccc;
+  font-size: 16px;
+  height: 31px;
+  line-height: 20px;
+  margin: 0;
+}
+
+.m-success-line {
+  width: 126px;
+  height: 30px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.m-success-mail p {
+  color: #cccccc;
+  font-size: 14px;
+  text-align: center;
+}
+
+.m-success-mail a {
+  font-size: 14px;
+  color: #FED108;
+}
+
+.m-success-mail a:hover {
+  color: lightblue;
+  text-decoration: underline;
+}
+
+.m-success-back {
+  display: block;
+  text-align: center;
+}
+
+.m-quick-login {
+  position: fixed;
+  z-index: 11;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.m-quick-login li {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.m-quick-login a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: #cccccc;
+  text-align: center;
+}
+
+.m-quick-login span {
+  font-size: 18px;
+  color: #eeeeee;
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>电影节信息管理</title>
+    <link rel="stylesheet" type="text/css" href="../assets/admin/ext-theme-neptune-all.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/admin/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/admin/naviNew.css" />
+    <script type="text/javascript" src="../assets/admin/ext-all.js"></script>
+    <script type="text/javascript" src="../assets/admin/ext-theme-neptune.js"></script>
+    <script type="text/javascript" src="../assets/admin/ext-lang-zh_CN.js"></script>
+</head>
+<body>
+    <script>
+        var maintab = Ext.create('Ext.tab.Panel', {
+            id : 'main_frame_center_tab',
+            region: 'center', // a center region is ALWAYS required for border layout
+            deferredRender: false,
+            activeTab: 0,     // first tab initially active
+            items: [ {
+                id : 'content',
+                title : '欢迎使用',
+                //'iconCls' : 'book',
+                icon : '',
+                closable:false,
+                html : "<h1 style='text-align:center'>欢迎使用系统！</h1>"
+            }]
+        });
+
+        function treeClick(view,node) {
+
+            var idSrcString = node.data.id;
+            //e.stopEvent();
+            var n = maintab.getComponent(idSrcString);
+            if(n){
+                //maintab.hideTabStripItem(n);
+                maintab.remove(n);
+            }
+            var n = maintab.add({
+                'id' : idSrcString,
+                'title' : node.data.text,
+                closable:true,
+                html : "<iframe name='contentframe' id='contentframe' height='100%' width='100%' src='"+node.data.iconCls+"'></iframe>"
+            });
+            maintab.setActiveTab(n);
+            /* node.disable();
+             setTimeout(function(){node.enable();},5000); */
+
+        }
+
+
+        /*var menus = [
+            {"menuid":"1","icon":"../assets/admin/themes/icons/user_suit.png","menuname":"用户管理","show":"true",
+                "menus":[
+                    {"id":"2","text":"标签管理","expanded":false,"leaf":true,"iconCls":"./user_manager/labelManage/label.html"},
+                    {"id":"3","text":"用户信息","expanded":false,"leaf":true,"iconCls":"./user_manager/UserInfoManage/userInfo.html"}
+                ]
+            },
+
+            {"menuid":"4","icon":"../assets/admin/themes/icons/email.png","menuname":"邮件管理","show":"true",
+                "menus":[
+                    {"id":"5","text":"群发邮件","expanded":false,"leaf":true,"iconCls":"./email_manager/sendEmailManage/SendEmail.html"},
+                    {"id":"6","text":"邮件设置","expanded":false,"leaf":true,"iconCls":"./email_manager/emailSettingManage/emailSetting.html"}
+                ]
+            },
+            {"menuid":"7","icon":"../assets/admin/themes/icons/application.png","menuname":"报名管理","show":"true",
+                "menus":[
+                    {"id":"8","text":"报名表管理","expanded":false,"leaf":true,"iconCls":"./apply_manager/applyFormManage/applyForm.html"},
+                    {"id":"9","text":"报名表列表","expanded":false,"leaf":true,"iconCls":"./apply_manager/listApplyForm.html"},
+                    {"id":"10","text":"报名表记录","expanded":false,"leaf":true,"iconCls":"./apply_manager/applyRecordManage/applyRecord.html"}
+                ]
+            },
+            {"menuid":"11","icon":"../assets/admin/themes/icons/money.png","menuname":"赞助管理","show":"true",
+                "menus":[
+                    {"id":"12","text":"赞助商管理","expanded":false,"leaf":true,"iconCls":"./sponsor_manager/sponsorManage/sponsor.html"}
+                ]
+            },
+            {"menuid":"13","icon":"../assets/admin/themes/icons/cog.png","menuname":"其他管理","show":"true",
+                "menus":[
+                    {"id":"14","text":"电影管理","expanded":false,"leaf":true,"iconCls":"./other_manager/movieManage/movie.html"},
+                    {"id":"15","text":"投资方管理","expanded":false,"leaf":true,"iconCls":"./other_manager/investorManage/investor.html"},
+                    {"id":"16","text":"新闻管理","expanded":false,"leaf":true,"iconCls":"./other_manager/articleManage/article.html"},
+                    {"id":"17","text":"浮标管理","expanded":false,"leaf":true,"iconCls":"./other_manager/buoyManage/buoy.html"},
+                    {"id":"18","text":"课程管理","expanded":false,"leaf":true,"iconCls":"./other_manager/courseManage/course.html"},
+                    {"id":"19","text":"评委管理","expanded":false,"leaf":true,"iconCls":"./other_manager/judgesManage/judge.html"},
+                    {"id":"20","text":"地图管理","expanded":false,"leaf":true,"iconCls":"./other_manager/mapLightManage/mapLight.html"},
+                    {"id":"21","text":"入选名单管理","expanded":false,"leaf":true,"iconCls":"./other_manager/selectedListManage/selectedList.html"},
+                    {"id":"22","text":"导师管理","expanded":false,"leaf":true,"iconCls":"./other_manager/tutorManage/tutor.html"}
+                ]
+            }
+
+        ];*/
+
+        var menus = [
+            {"menuid":"1","icon":"../assets/admin/themes/icons/user_suit.png","menuname":"内容管理","show":"true",
+                "menus":[
+                    {"id":"2","text":"电影管理","expanded":false,"leaf":true,"iconCls":"./other_manager/movieManage/movie.html"},
+                    {"id":"3","text":"赞助商管理","expanded":false,"leaf":true,"iconCls":"./sponsor_manager/sponsorManage/sponsor.html"},
+                    {"id":"4","text":"新闻管理","expanded":false,"leaf":true,"iconCls":"./other_manager/articleManage/article.html"},
+                    {"id":"5","text":"地图管理","expanded":false,"leaf":true,"iconCls":"./other_manager/mapLightManage/mapLight.html"},
+                    {"id":"6","text":"链接管理","expanded":false,"leaf":true,"iconCls":"./other_manager/buoyManage/buoy.html"},
+                    {"id":"7","text":"评委管理","expanded":false,"leaf":true,"iconCls":"./other_manager/judgesManage/judge.html"}
+                ]
+            },
+
+            {"menuid":"8","icon":"../assets/admin/themes/icons/email.png","menuname":"训练营","show":"true",
+                "menus":[
+                    {"id":"9","text":"课程管理","expanded":false,"leaf":true,"iconCls":"./other_manager/courseManage/course.html"},
+                    {"id":"10","text":"导师管理","expanded":false,"leaf":true,"iconCls":"./other_manager/tutorManage/tutor.html"}
+                ]
+            },
+            {"menuid":"11","icon":"../assets/admin/themes/icons/application.png","menuname":"创投会","show":"true",
+                "menus":[
+                    {"id":"12","text":"投资方管理","expanded":false,"leaf":true,"iconCls":"./other_manager/investorManage/investor.html"},
+                    {"id":"13","text":"入选名单管理","expanded":false,"leaf":true,"iconCls":"./other_manager/selectedListManage/selectedList.html"}
+                ]
+            },
+            {"menuid":"14","icon":"../assets/admin/themes/icons/money.png","menuname":"用户管理","show":"true",
+                "menus":[
+                    {"id":"15","text":"账户管理","expanded":false,"leaf":true,"iconCls":"./user_manager/UserInfoManage/userInfo.html"},
+                    {"id":"16","text":"标签管理","expanded":false,"leaf":true,"iconCls":"./user_manager/labelManage/label.html"}
+                ]
+            },
+            {"menuid":"17","icon":"../assets/admin/themes/icons/cog.png","menuname":"报名管理","show":"true",
+                "menus":[
+                    {"id":"18","text":"报名表管理","expanded":false,"leaf":true,"iconCls":"./apply_manager/applyFormManage/applyForm.html"},
+                    {"id":"19","text":"报名记录","expanded":false,"leaf":true,"iconCls":"./apply_manager/applyRecordManage/applyRecord.html"},
+                ]
+            },
+            {"menuid":"20","icon":"../assets/admin/themes/icons/cog.png","menuname":"邮件管理","show":"true",
+                "menus":[
+                    {"id":"21","text":"群发邮件","expanded":false,"leaf":true,"iconCls":"./email_manager/sendEmailManage/SendEmail.html"},
+                    {"id":"22","text":"邮件通知设置","expanded":false,"leaf":true,"iconCls":"#"},
+                    {"id":"23","text":"发送账号设置","expanded":false,"leaf":true,"iconCls":"./email_manager/emailSettingManage/emailSetting.html"}
+                ]
+            },
+            {"menuid":"24","icon":"../assets/admin/themes/icons/cog.png","menuname":"时间轴管理","show":"true",
+                "menus":[
+                    {"id":"25","text":"志愿者","expanded":false,"leaf":true,"iconCls":"./timeLine_manager/volunteerManage/volunteer.html"},
+                    {"id":"26","text":"评委","expanded":false,"leaf":true,"iconCls":"./timeLine_manager/JudgesManage/judge.html"},
+                    {"id":"27","text":"奖项设置","expanded":false,"leaf":true,"iconCls":"./timeLine_manager/awardManage/award.html"}
+                ]
+            }
+
+        ];
+
+        var treeItems=[];
+        menus.forEach(function(item,index){
+
+            var childrenItems = item.menus;
+
+            var store = Ext.create('Ext.data.TreeStore', {
+                root: {
+                    expanded: true,
+                    children: childrenItems
+                }
+
+            });
+            var newItem = Ext.create('Ext.TreePanel',{
+                id: item.menuid,
+                title: item.menuname,
+                icon: item.icon,
+                autoScroll: true,
+                rootVisible: false,
+                store: store,
+                listeners: {
+                    'itemclick': treeClick
+                }
+            });
+            treeItems.push(newItem);
+        });
+
+
+
+        Ext.require(['*']);
+        Ext.onReady(function() {
+
+            Ext.QuickTips.init();
+
+            //Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
+            Ext.create('Ext.Viewport', {
+                id: 'border-example',
+                layout: 'border',
+                items: [
+                    {
+                        region : 'north',
+                        contentEl : 'north',
+                        height : 35
+                    },
+                    Ext.create('Ext.Component', {
+                        region: 'south',
+                        height: 20
+
+                    }) , {
+                        region: 'west',
+                        stateId: 'navigation-panel',
+                        id: 'west-panel', // see Ext.getCmp() below
+                        title: '导航栏',
+                        split: true,
+                        width: 200,
+                        minWidth: 175,
+                        maxWidth: 400,
+                        collapsible: true,
+                        animCollapse: true,
+                        margins: '0 0 0 5',
+                        layout: 'accordion',
+                        items: treeItems
+                    },
+                    maintab
+                ]
+            });
+
+        });
+
+
+    </script>
+    <div id="north" class="x-hide-display">
+        <a id="TopNavLogo" target="_top" href="./">电影节信息管理系统</a>
+    	<span id="TopNavAbout">
+	      <a id="UserName">欢迎</a>
+	      <a id="edit_id" href="javaScript:changePassword()">[ 修改密码 ]</a>
+	      <a href="#">退出</a>
+	    </span>
+    </div>
+    <div id="south" class="x-hide-display"></div>
+    <div id="message"></div>
+</body>
+</html>

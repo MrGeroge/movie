@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+            http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <mapping date-format="yyyy-MM-dd">
+
+    <class-a>com.strival.movie.vo.FormVO</class-a>
+
+    <class-b>com.strival.movie.po.Form</class-b>
+
+</mapping>
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.SponsorVO</class-a>
+
+        <class-b>com.strival.movie.po.Sponsor</class-b>
+
+    </mapping>
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.TagVO</class-a>
+
+        <class-b>com.strival.movie.po.Tag</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.AccountProfileVO</class-a>
+
+        <class-b>com.strival.movie.po.AccountProfile</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.ArticleVO</class-a>
+
+        <class-b>com.strival.movie.po.Article</class-b>
+
+    </mapping>
+
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.MovieVO</class-a>
+
+        <class-b>com.strival.movie.po.Movie</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.MovieSimpleVO</class-a>
+
+        <class-b>com.strival.movie.po.Movie</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.BuoyVO</class-a>
+
+        <class-b>com.strival.movie.po.Buoy</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.ReviewVO</class-a>
+
+        <class-b>com.strival.movie.po.Review</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.EnterVO</class-a>
+
+        <class-b>com.strival.movie.po.Enter</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.InvestorVO</class-a>
+
+        <class-b>com.strival.movie.po.Investor</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.CourseVO</class-a>
+
+        <class-b>com.strival.movie.po.Course</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.MentorVO</class-a>
+
+        <class-b>com.strival.movie.po.Mentor</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.MapLightVO</class-a>
+
+        <class-b>com.strival.movie.po.MapLight</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.MovieCategoryVO</class-a>
+
+        <class-b>com.strival.movie.po.MovieCategory</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.FormUploadRecordVO</class-a>
+
+        <class-b>com.strival.movie.po.FormUploadRecord</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.AwardVO</class-a>
+
+        <class-b>com.strival.movie.po.Award</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.JudgerVO</class-a>
+
+        <class-b>com.strival.movie.po.Judger</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.VolunteerVO</class-a>
+
+        <class-b>com.strival.movie.po.Volunteer</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.AwardSimpleVO</class-a>
+
+        <class-b>com.strival.movie.po.Award</class-b>
+
+    </mapping>
+
+    <mapping date-format="yyyy-MM-dd">
+
+        <class-a>com.strival.movie.vo.MailSubscribeVO</class-a>
+
+        <class-b>com.strival.movie.po.MailSubscribe</class-b>
+
+    </mapping>
+
+</mappings>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建报名表</title>
+    <link rel="stylesheet" type="text/css" href="../../../assets/admin/jquery-ui.css" />
+    <link rel="stylesheet" href="http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Fcss%2Fform.css"/>
+    <script type="text/javascript" src="../../../assets/admin/jquery.js"></script>
+    <script type="text/javascript" src="../../../assets/admin/jquery-ui.js"></script>
+    <script src="http://festival-xining.oss-cn-hangzhou.aliyuncs.com/frontend%2Fjs%2Fbase.js"></script>
+
+    <style>
+        .delete{
+            position: absolute;
+            right:5px;
+            top:10px;
+            z-index: 5;
+        }
+        #apply{
+            padding:10px 10px 10px 10px;
+            margin:10px auto;
+            width:80%;
+            height: 600px;
+        }
+
+        #sortable li{
+            position: relative;
+        }
+        #widget{
+            position: fixed;
+            left:10px;
+            top:10%;
+            text-align: left;
+        }
+        #widget li{
+            list-style: none;
+            margin:5px 0;
+            width:100px;
+            background-color:gold;
+            height:30px;
+
+        }
+        #widget li input{
+            width:100%;
+            height:100%;
+            background-color:gold;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+<div id="combo" style="bodyPadding:20px;text-align:center">
+    选择所要创建的报名表：
+    <select contenteditable="false" id="selects">
+        <option value="创投提案报名表" name="创投提案报名表">创投提案报名表</option>
+        <option value="创投资方报名表" name="创投资方报名表">创投资方报名表</option>
+        <option value="训练营报名表" name="训练营报名表">训练营报名表</option>
+        <option value="媒体报名表" name="媒体报名表">媒体报名表</option>
+        <option value="志愿者报名表" name="志愿者报名表">志愿者报名表</option>
+        <option value="主动放映报名表" name="主动放映报名表">主动放映报名表</option>
+        <option value="电影报名表" name="电影报名表">电影报名表</option>
+    </select>
+</div>
+<br>
+<div id="widget" style="text-align:center">
+    <h3>添加控件:</h3>
+    <ul class="button_list">
+
+        <li><input type="button" onclick="addStep()" value="步骤"></li>
+        <li><input type="button" onclick="addTextField()" value="文本框"></li>
+        <li><input type="button" onclick="addTextAreaField()" value="文本域"></li>
+        <li><input type="button" onclick="addDoubleTextAreaField()" value="双文本域"></li>
+        <li><input type="button" onclick="addRadio()" value="单选框"></li>
+        <li><input type="button" onclick="addCheckboxInput1()" value="单选文本框1"></li>
+        <li><input type="button" onclick="addCheckboxInput2()" value="单选文本框2"></li>
+        <li><input type="button" onclick="addLeftLongbox()" value="左长框"></li>
+
+        <li><input type="button" onclick="addDatebox()" value="时间选择框"></li>
+        <li><input type="button" onclick="addUpload()" value="上传框"></li>
+        <li><!--<input type="button" onclick="addCheckbox()" value="复选框">--></li>
+        <li><!--<input type="button" onclick="addSelect()" value="下拉框">--></li>
+
+
+    </ul>
+</div>
+<div id="apply">
+    <div id="sortable">
+
+    </div>
+</div>
+
+<div id="dialogStep" title="步骤设置">
+    步骤名称&nbsp;&nbsp;&nbsp;&nbsp;：<input id="stepName"type="text"><br>
+</div>
+<div id="dialogTextField" title="文本框设置">
+    名称&nbsp;&nbsp;&nbsp;&nbsp;：<input id="textName"type="text"><br>
+    提示信息：<input id="placeHold"type="text"name="placeHold">
+    <br>
+    是否必填：
+    <br/>
+    <select name="isRequire" id="TextFieldRequire">
+        <option value="1">是</option>
+        <option value="0">否</option>
+    </select>
+</div>
+<div id="dialogLeftLongbox" title="左长文本框设置">
+    名称&nbsp;&nbsp;&nbsp;&nbsp;：<input id="LeftLongboxName" type="text"><br>
+    选择框1：<input id="LeftLongboxradio1" type="text">
+    <br/>选择框2:
+    <input id="LeftLongboxradio2" type="text">
+    <br>
+    是否必填：
+    <br/>
+    <select name="isRequire" id="LeftLongboxRequire">
+        <option value="1">是</option>
+        <option value="0">否</option>
+    </select>
+</div>
+<div id="dialogTextAreaField" title="文本域设置">
+    名称&nbsp;&nbsp;&nbsp;&nbsp;：<input id="textFieldName"type="text"><br>
+    提示信息：<input id="textFieldPlaceHold"type="text"name="placeHold">
+    <br>
+    是否必填：
+    <br/>
+    <select name="isRequire" id="TextAreaFieldRequire">
+        <option value="1">是</option>
+        <option value="0">否</option>
+    </select>
+</div>
+<div id="dialogDouvleTextAreaField" title="双文本域设置">
+    名称&nbsp;&nbsp;&nbsp;&nbsp;：<input id="doubletextFieldName"type="text"><br>
+    上文本域提示信息：<input id="textFieldPlaceHold1"type="text"name="placeHold">
+    <br/>下文本域提示信息：<input id="textFieldPlaceHold2"type="text"name="placeHold">
+    <br>
+    是否必填：
+    <br/>
+    <select name="isRequire" id="DoubleTextAreaFieldRequire">
+        <option value="1">是</option>
+        <option value="0">否</option>
+    </select>
+</div>
+<div id="dialogRadio" title="单选框">
+    名称&nbsp;&nbsp;&nbsp;&nbsp;：<input id="radioName" type="text"><br>
+    选择数目：<input id="radioItemNum" type="text">
+    <br>
+    是否必填：
+    <br/>
+    <select name="isRequire" id="radioRequire">
+        <option value="1">是</option>
+        <option value="0">否</option>
+    </select>
+</div>
+<div id="dialogCheckboxInput1" title="单选文本框1">
+    名称&nbsp;&nbsp;&nbsp;&nbsp;：<input id="checkboxInput1Name" type="text"><br>
+    <br/> 提示信息：<input id="checkboxInput1placeHoder" type="text">
+    <br/>选择按钮名称<input id="checkboxInput1buttonName" type="text">
+    <br>
+    是否必填：
+    <br/>
+    <select name="isRequire" id="CheckboxInput1Require">
+        <option value="1">是</option>
+        <option value="0">否</option>
+    </select>
+</div>
+<div id="dialogCheckboxInput2" title="单选文本框2">
+    名称&nbsp;&nbsp;&nbsp;&nbsp;：<input id="checkboxInput2Name" type="text"><br>
+    <br/> 提示信息：<input id="checkboxInput2placeHoder" type="text">
+    <br/>选择按钮名称<input id="checkboxInput2buttonName" type="text">
+    <br/>是否必填：
+    <br/>
+    <select name="isRequire" id="CheckboxInput2Require">
+        <option value="1">是</option>
+        <option value="0">否</option>
+    </select>
+</div>
+<div id="dialogUpload" title="上传框">
+    名称&nbsp;&nbsp;&nbsp;&nbsp;：<input id="uploadName" type="text"><br>
+    上传路径：<input id="uploadUrl" type="text"><br>
+    是否必填：
+    <br/>
+    <select name="isRequire" id="uploadRequire">
+        <option value="1">是</option>
+        <option value="0">否</option>
+    </select>
+</div>
+<div id="dialogDateBox" title="日期框">
+    名称&nbsp;&nbsp;&nbsp;&nbsp;：<input id="DateBoxName" type="text">
+    <br>
+    是否必填：
+    <br/>
+    <select name="isRequire" id="DateBoxRequire">
+        <option value="1">是</option>
+        <option value="0">否</option>
+    </select>
+</div>
+
+<div id="dialogRadioItems" title="填写选项">
+</div>
+<!--<div id="dialogCheckboxItems" title="填写选项">-->
+<!--</div>-->
+<!--<div id="dialogSelectItems" title="填写选项">-->
+<!--</div>-->
+
+<script>
+    //index = 0;
+
+    var ul = $('#sortable');
+
+    $(function(){
+        $('#apply').css("border","1px solid #000").droppable();
+        $('#sortable').sortable();
+
+//            文本框
+        $('#dialogTextField').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        var textName = document.getElementById('textName').value;
+                        var placeHold = document.getElementById('placeHold').value;
+                        var isRequire = document.getElementById('TextFieldRequire').value;
+                        if(isRequire==1){
+                            var li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'><div class='n-input n-require'><label >"+textName+"</label><input type='text' placeholder='"+placeHold+"' /></div></li>"
+
+                        }
+                        else{
+                            var li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'><div class='n-input'><label >"+textName+"</label><input type='text' placeholder='"+placeHold+"' /></div><li>"
+                        }
+                        ul.append(li);
+//                            addListener();
+                        $('li').css("list-style","none");
+                        $(this).dialog("close");
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+
+//            文本域
+        $('#dialogTextAreaField').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        var textName = document.getElementById('textFieldName').value;
+                        var placeHold = document.getElementById('textFieldPlaceHold').value;
+                        var isRequire = document.getElementById('TextAreaFieldRequire').value;
+                        if(isRequire==1){
+                            var li = '<li><img class="delete" src="../../../assets/admin/themes/icons/delete.png"><div class="n-textarea n-require row"><label >'+textName+':</label><div ><textarea name="textarea" placeholder="'+placeHold+'" cols="50" rows="4"></textarea></div></div></li>'
+
+                        }
+                        else{
+                            var li = '<li><img class="delete" src="../../../assets/admin/themes/icons/delete.png"><div class="n-textarea row"><label >'+textName+':</label><div ><textarea name="textarea" placeholder="'+placeHold+'" cols="50" rows="4"></textarea></div></div></li>'
+                        }
+                        ul.append(li);
+                        addListener();
+                        $('li').css("list-style","none");
+                        $(this).dialog("close");
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+
+//            双文本域
+
+        $('#dialogDouvleTextAreaField').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        var textName = document.getElementById('doubletextFieldName').value;
+                        var placeHold1 = document.getElementById('textFieldPlaceHold1').value;
+                        var placeHold2 = document.getElementById('textFieldPlaceHold2').value;
+                        var isRequire = document.getElementById('DoubleTextAreaFieldRequire').value;
+                        if(isRequire==1){
+                            var li = '<li><img class="delete" src="../../../assets/admin/themes/icons/delete.png"><div class="n-textarea n-require row"><label >'+textName+':</label> <div ><textarea name="textarea" placeholder="'+placeHold1  +'" cols="50" rows="4"></textarea><br/><textarea name="textarea" placeholder="'+placeHold2  +'" cols="50" rows="4"></textarea></div></div></li>'
+
+                        }
+                        else{
+                            var li = '<li><img class="delete" src="../../../assets/admin/themes/icons/delete.png"><div class="n-textarea row"><label >'+textName+':</label> <div ><textarea name="textarea" placeholder="'+placeHold1  +'" cols="50" rows="4"></textarea><br/><textarea name="textarea" placeholder="'+placeHold2  +'" cols="50" rows="4"></textarea></div></div></li>'
+                        }
+                        ul.append(li);
+//                            addListener();
+                        $('li').css("list-style","none");
+                        $(this).dialog("close");
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+//            单选框
+        $('#dialogRadioItems').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        var radioName = document.getElementById('radioName').value;
+                        var radioItemNum = document.getElementById('radioItemNum').value;
+                        var isRequire = document.getElementById('radioRequire').value;
+
+                        var li = "";
+                        var item;
+                        for(var i=1;i<=radioItemNum;i++){
+                            item = document.getElementById('radioItem'+i).value;
+                            li+='<label for="'+item+'" class="radio_wrap">'+item+'<input type="radio" id="'+item+'" class="radio" name="'+radioName+'" value="'+item+'" /></label>';
+
+                        }
+                        if(isRequire==1){
+                            li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+
+                                    '<div class="n-radio n-require row"><label >'+radioName+'</label><div>'
+                                    +li+"</div></div></li>";
+                        }
+                        else{
+                            li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+
+                                    '<div class="n-radio  row"><label >'+radioName+'</label><div>'
+                                    +li+"</div></div></li>";
+                        }
+                        ul.append(li);
+//                            addListener();
+                        $(this).dialog("close");
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+
+        $('#dialogRadio').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        //var radioName = document.getElementById('radioName').value;
+                        var radioItemNum = document.getElementById('radioItemNum').value;
+
+                        $(this).dialog("close");
+                        var items = $('#dialogRadioItems');
+                        items.html('');
+                        items.dialog("open");
+
+                        for(var i=1;i<=radioItemNum;i++){
+                            var item = "选项"+i+"：<input id='radioItem"+i+"'type='text'>";
+                            items.append(item);
+                        }
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+
+//            单选文本框1
+
+        $('#dialogCheckboxInput1').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        var inputName = document.getElementById('checkboxInput1Name').value;
+                        var checkboxInput1placeHoder = $('#checkboxInput1placeHoder').val();
+                        var checkboxInput1buttonName = $('#checkboxInput1buttonName').val();
+                        var isRequire = $('#checkboxInput1buttonName').val();
+                        var li = "";
+
+                        if(isRequire==1){
+                            li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+
+                                    '<div class="n-input-and-checkbox n-require row"><label >'+inputName+':</label><div ><input type="text" placeholder="'+checkboxInput1placeHoder +'" /><label for="'+checkboxInput1buttonName+'" class="radio_wrap">'+checkboxInput1buttonName+'<input type="checkbox" id="'+checkboxInput1buttonName+'" class="checkbox" name="'+checkboxInput1buttonName+'" value="1" /></label></div></div></li>';
+
+                        }
+                        else{
+                            li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+
+                                    '<div class="n-input-and-checkbox row"><label >'+inputName+':</label><div ><input type="text" placeholder="'+checkboxInput1placeHoder +'" /><label for="'+checkboxInput1buttonName+'" class="radio_wrap">'+checkboxInput1buttonName+'<input type="checkbox" id="'+checkboxInput1buttonName+'" class="checkbox" name="'+checkboxInput1buttonName+'" value="1" /></label></div></div></li>';
+
+                        }
+                        ul.append(li);
+//                            addListener();
+                        $(this).dialog("close");
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+//            单选文本框2
+        $('#dialogCheckboxInput2').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        var inputName = document.getElementById('checkboxInput2Name').value;
+                        var checkboxInput2placeHoder = $('#checkboxInput2placeHoder').val();
+                        var checkboxInput2buttonName = $('#checkboxInput2buttonName').val();
+                        var isRequire = $('#checkboxInput2buttonName').val();
+                        var li = "";
+
+                        if(isRequire==1){
+                            li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+
+                                    '<div class="n-input-and-checkbox n-require row"><label >'+inputName+':</label><div ><label for="'+checkboxInput2buttonName+'" class="radio_wrap">'+checkboxInput2buttonName+'<input type="checkbox" id="'+checkboxInput2buttonName+'" class="checkbox" name="'+checkboxInput2buttonName+'" value="1" /></label><input type="text" placeholder="'+checkboxInput2placeHoder +'" /></div></div></li>';
+
+                        }
+                        else{
+                            li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+
+                                    '<div class="n-input-and-checkbox row"><label >'+inputName+':</label><div ><label for="'+checkboxInput2buttonName+'" class="radio_wrap">'+checkboxInput2buttonName+'<input type="checkbox" id="'+checkboxInput2buttonName+'" class="checkbox" name="'+checkboxInput2buttonName+'" value="1" /></label><input type="text" placeholder="'+checkboxInput2placeHoder +'" /></div></div></li>';
+
+                        }
+                        ul.append(li);
+//                            addListener();
+                        $(this).dialog("close");
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+
+//            左长文本框
+        $('#dialogLeftLongbox').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        var inputName = document.getElementById('LeftLongboxName').value;
+                        var LeftLongboxradio1 = $('#LeftLongboxradio1').val();
+                        var LeftLongboxradio2 = $('#LeftLongboxradio2').val();
+                        var isRequire = $('#LeftLongboxRequire').val();
+                        var li = "";
+
+                        if(isRequire==1){
+                            li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+
+                                    '<div class="n-long-radio n-require row"><label>'+inputName+'</label><div class="row"><label for="'+LeftLongboxradio1+'" class="radio_wrap">'+LeftLongboxradio1 +'<input type="radio" id="'+LeftLongboxradio1 +'" class="radio" name="'+LeftLongboxradio1 +'" value="1" /></label><label for="'+LeftLongboxradio2 +'" class="radio_wrap">'+LeftLongboxradio2 +'<input type="radio" id="'+LeftLongboxradio2 +'" class="radio" name="'+LeftLongboxradio2 +'" value="1" /></label></div></div></li>';
+
+                        }
+                        else{
+                            li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+
+                                    '<div class="n-long-radio row"><label>'+inputName+'</label><div class="row"><label for="'+LeftLongboxradio1+'" class="radio_wrap">'+LeftLongboxradio1 +'<input type="radio" id="'+LeftLongboxradio1 +'" class="radio" name="'+LeftLongboxradio1 +'" value="1" /></label><label for="'+LeftLongboxradio2 +'" class="radio_wrap">'+LeftLongboxradio2 +'<input type="radio" id="'+LeftLongboxradio2 +'" class="radio" name="'+LeftLongboxradio2 +'" value="1" /></label></div></div></li>';
+
+                        }
+                        ul.append(li);
+//                            addListener();
+                        $(this).dialog("close");
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+
+//日期框
+        $('#dialogDateBox').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        var textName = document.getElementById('DateBoxName').value;
+                        var isRequire = document.getElementById('DateBoxRequire').value;
+                        if(isRequire==1){
+                            var li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+'<div class="n-dateinput n-require row"><label >'+textName+':</label><div><div class="asInput"><input type="text" />年<input type="text" />月<input type="text"  />日</div></div></div></li>';
+
+                        }
+                        else{
+                            var li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+'<div class="n-dateinput row"><label >'+textName+':</label><div><div class="asInput"><input type="text" />年<input type="text" />月<input type="text"  />日</div></div></div></li>';}
+                        ul.append(li);
+//                            addListener();
+                        $('li').css("list-style","none");
+                        $(this).dialog("close");
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+//上传框
+        $('#dialogUpload').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        var textName = document.getElementById('uploadName').value;
+                        var uploadUrl = $('#uploadUrl').val();
+                        var isRequire = document.getElementById('uploadRequire').value;
+                        if(isRequire==1){
+                            var li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>"+
+                                    '<div class="n-flie-upload n-require row"><label >'+textName+':</label><div >'+
+                                    '<form action="'+uploadUrl+'" method="post" enctype="multipart/form-data">'
+                                    +"<input type='button' class='upload_btn' value='选择文件' />"
+                                    +"<input type='text' name='textfield' id='textfield' class='txt' />"
+                                    +'<input type="file" name="fileField" class="file" id="fileField" size="28" onchange="'+
+                                    "document.getElementById('textfield').value=this.value"
+                                    +'" />'
+                                    +'<input type="submit" name="submit" class="upload_btn" value="上传" />'
+                                    +'</form></div></div> '
+                        }
+                        else {
+                            var li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'>" +
+                                    '<div class="n-flie-upload n-require row"><label >'+textName+':</label><div >' +
+                                    '<form action="'+uploadUrl+'" method="post" enctype="multipart/form-data">'
+                                    + "<input type='button' class='upload_btn' value='选择文件' />"
+                                    + "<input type='text' name='textfield' id='textfield' class='txt' />"
+                                    + '<input type="file" name="fileField" class="file" id="fileField" size="28" onchange="' +
+                                    "document.getElementById('textfield').value=this.value"
+                                    +'" />'
+                                    + '<input type="submit" name="submit" class="upload_btn" value="上传" />'
+                                    + '</form></div></div> '
+                        }
+                        ul.append(li);
+//                            addListener();
+                        $('li').css("list-style","none");
+                        $(this).dialog("close");
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+
+        $('#dialogStep').dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+
+                        var inputName = document.getElementById('stepName').value;
+                        stepNumber++;
+                        var li = "<li><img class='delete' src='../../../assets/admin/themes/icons/delete.png'><div class='n-step'><span>Step "+stepNumber+". "+inputName+"</span></div></li>";
+                        ul.append(li);
+
+                        $(this).dialog("close");
+                    }
+                }
+            ],
+            autoOpen: false
+        });
+// $('#dialogCheckbox').dialog({
+//                dialogClass: "no-close",
+//                buttons: [
+//                    {
+//                        text: "OK",
+//                        click: function () {
+//                            var checkboxItemNum = document.getElementById('checkboxItemNum').value;
+//
+//                            $(this).dialog("close");
+//                            var items = $('#dialogCheckboxItems');
+//                            items.html('');
+//                            items.dialog("open");
+//
+//                            for(var i=1;i<=checkboxItemNum;i++){
+//                                var item = "选项"+i+"：<input id='checkboxItem"+i+"'type='text'>";
+//                                items.append(item);
+//                            }
+//                        }
+//                    }
+//                ],
+//                autoOpen: false
+//            });
+
+//            $('#dialogSelectItems').dialog({
+//                dialogClass: "no-close",
+//                buttons: [
+//                    {
+//                        text: "OK",
+//                        click: function () {
+//
+//                            var selectName = document.getElementById('selectName').value;
+//                            var selectItemNum = document.getElementById('selectItemNum').value;
+//
+//                            var li = "";
+//                            var item;
+//                            for(var i=1;i<=selectItemNum;i++){
+//                                item = document.getElementById('selectItem'+i).value;
+//                                li += "<option>"+item+"</option>";
+//                            }
+//
+//                            li = "<li><img src='../../../assets/admin/themes/icons/delete.png'>"+
+//                                    selectName+":<select>"+li+"</select></li>";
+//                            ul.append(li);
+//                            addListener();
+//                            $(this).dialog("close");
+//                        }
+//                    }
+//                ],
+//                autoOpen: false
+//            });
+//
+//            $('#dialogSelect').dialog({
+//                dialogClass: "no-close",
+//                buttons: [
+//                    {
+//                        text: "OK",
+//                        click: function () {
+//
+//                            //var radioName = document.getElementById('radioName').value;
+//                            var selectItemNum = document.getElementById('selectItemNum').value;
+//
+//                            $(this).dialog("close");
+//                            var items = $('#dialogSelectItems');
+//                            items.html('');
+//                            items.dialog("open");
+//
+//                            for(var i=1;i<=selectItemNum;i++){
+//                                var item = "选项"+i+"：<input id='selectItem"+i+"'type='text'>";
+//                                items.append(item);
+//                            }
+//                        }
+//                    }
+//                ],
+//                autoOpen: false
+//            });
+
+    });
+
+
+    var stepNumber=0;
+    addListener();
+
+    function addStep(){
+        $('#dialogStep').dialog("open");
+
+//            addListener();
+    }
+
+    function addListener(){
+        var li = $('#sortable');
+        li.css("list-style","none");
+        li.on('click','li .delete',function(){
+            $(this).parent().remove();
+            if($(this).next().hasClass('n-step')){
+                stepNumber--;
+            }
+
+        });
+    }
+    function addTextField(){
+        $('#dialogTextField').dialog("open");
+    }
+    function addTextAreaField(){
+        $('#dialogTextAreaField').dialog("open");
+    }
+
+    function addRadio(){
+        $('#dialogRadio').dialog("open");
+    }
+
+    function addCheckbox(){
+        $('#dialogCheckbox').dialog("open");
+    }
+
+    function addSelect(){
+        $('#dialogSelect').dialog("open");
+    }
+    function addDoubleTextAreaField(){
+        $('#dialogDouvleTextAreaField').dialog("open");
+    }
+    function addCheckboxInput1(){
+        $('#dialogCheckboxInput1').dialog("open");
+    }
+    function addCheckboxInput2(){
+        $('#dialogCheckboxInput2').dialog("open");
+    }
+    function addDatebox(){
+        $('#dialogDateBox').dialog("open");
+    }
+    function addLeftLongbox(){
+        $('#dialogLeftLongbox').dialog("open");
+    }
+    function addUpload(){
+        $('#dialogUpload').dialog("open");
+    }
+
+</script>
+</body>
+</html>

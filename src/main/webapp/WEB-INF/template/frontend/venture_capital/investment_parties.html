@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>西宁FIRST青年电影展</title>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fbootstrap.min.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fbootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fcss%2Findex.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fcss%2Fbase.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fcss%2Fventure_capital.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--头部导航-->
+<div class="m-navbar" th:replace="fragment :: navbar" >
+    <div class="m-navbar-container">
+        <a class="m-navbar-login" onclick="showRegister()">注册</a>
+        <span> | </span>
+        <a class="m-navbar-login" onclick="showLogin()">登陆</a>
+        <a href="" class="m-navbar-lang">English</a>
+
+        <form action="" method="">
+            <input type="text" class="m-navbar-search" placeholder="搜索"/>
+            <button type="submit" class="m-navbar-commit"><i class="iconfont">&#xe645;</i></button>
+        </form>
+    </div>
+</div><!--顶部导航条-->
+<div class="m-header" th:replace="fragment :: header" >
+    <div class="m-header-content">
+        <div class="m-header-logo">
+            <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Flogo.png" alt="logo"/>
+        </div>
+        <div class="m-header-nav-list">
+            <div>
+                <dl>
+                    <dt><a href="../filmtest/about.html">电影节</a></dt>
+                    <dd><a href="../filmtest/about.html">关于我们</a></dd>
+                    <dd><a href="../filmtest/comp_regulations.html">竞赛</a></dd>
+                    <dd><a href="../filmtest/youth.html">青年电影人</a></dd>
+                    <dd><a href="../filmtest/volunteer_manual.html">志愿者</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../showing/special_tribute.html">展映</a></dt>
+                    <dd><a href="../showing/competition_unit_documentary.html">竞赛展映</a></dd>
+                    <dd><a href="../showing/striking_first.html">惊人首作</a></dd>
+                    <dd><a href="../showing/takeshi_exhibition.html">大师之初</a></dd>
+                    <dd><a href="../showing/college_spirit.html">学院精神</a></dd>
+                    <dd><a href="../showing/xining_image.html">西宁镜像</a></dd>
+                    <dd><a href="../showing/continental_quadrant.html">欧陆象限</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="proposal_apply.html">创投会</a></dt>
+                    <dd><a href="proposal_apply.html">在线报名</a></dd>
+                    <dd><a href="../venture_capital/introduction.html">创投介绍</a></dd>
+                    <dd><a href="../venture_capital/script_review.html">评审&amp;奖项</a></dd>
+                    <dd><a href="../venture_capital/investment_parties.html">资方介绍</a></dd>
+                    <dd><a href="../venture_capital/selected_items.html">入选项目</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../training/training_introduction.html">训练营</a></dt>
+                    <dd><a href="../training/training_introduction.html">训练营介绍</a></dd>
+                    <dd><a href="../training/apply.html">在线报名</a></dd>
+                    <dd><a href="../training/course.html">课程介绍</a></dd>
+                    <dd><a href="../training/tutor.html">导师介绍</a></dd>
+                    <dd><a href="../training/student.html">学员介绍</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../media_center/apply.html">媒体中心</a></dt>
+                    <dd><a href="../media_center/apply.html">媒体报名</a></dd>
+                    <dd><a href="../media_center/news.html">新闻稿件</a></dd>
+                    <dd><a href="../media_center/download_center.html">媒体下载中心</a></dd>
+                    <dd><a href="">视觉系统</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../event/exhibition.html">事件</a></dt>
+                    <dd><a href="../event/exhibition.html">主动放映</a></dd>
+                    <dd><a href="../event/cinematheque.html">青年电影馆</a></dd>
+                    <dd><a href="../event/bingshi_lab.html">并驰LAB</a></dd>
+                    <dd><a href="../event/longyue_plan.html">龙跃计划</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../service/transport_line.html">服务</a></dt>
+                    <dd><a href="../service/transport_line.html">交通线路</a></dd>
+                    <dd><a href="../service/hotel.html">酒店住宿</a></dd>
+                    <dd><a href="../service/diet.html">饮食</a></dd>
+                    <dd><a href="../service/tips.html">贴士</a></dd>
+                    <dd><a href="../service/keepsake.html">纪念品</a></dd>
+                    <dd><a href="../service/exhibition_venue.html">展映场地&amp;排期</a></dd>
+                    <dd><a href="">票务信息</a></dd>
+                    <dd><a href="">展映手册下载</a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部导航-->
+<div class="container-fluid n-content">
+    <div class="row">
+        <!--左部导航-->
+        <div class="n-left_content col-lg-3 col-md-3 col-sm-3">
+            <ul class="n-nav_left">
+                <li><a href="/venture_capital/introduction" th:href="@{/venture_capital/introduction}">创投会介绍</a></li>
+                <li><a href="/venture_capital/investors_apply" th:href="@{/venture_capital/investors_apply}">创投资方报名</a></li>
+                <li><a href="/venture_capital/proposal_apply" th:href="@{/venture_capital/proposal_apply}">创投提案报名</a></li>
+                <li><a>评审&amp;奖项<span class="n-triangle pull-right"></span></a></li>
+                <ul class="n-nav_second hide">
+                    <li><a href="/venture_capital/script_review" th:href="@{/venture_capital/script_review}">剧本复审</a></li>
+                    <li><a href="/venture_capital/script_final" th:href="@{/venture_capital/script_final}">剧本终审</a></li>
+                </ul>
+                <li class="active"><a href="/venture_capital/investment_parties.html" th:href="@{/venture_capital/investment_parties}">资方介绍</a></li>
+                <li><a href="/venture_capital/selected_items" th:href="@{/venture_capital/selected_items}">入选项目</a></li>
+
+            </ul>
+            <div class="n-left_img">
+                <div>
+                    <img src=" http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fleft_nav%2Fimg1.png" alt="图片1"/>
+                </div>
+                <div>
+                    <img src=" http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fleft_nav%2Fimg2.png" alt="图片2"/>
+                </div>
+                <div>
+                    <img src=" http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fleft_nav%2Fimg3.png" alt="图片3"/>
+                </div>
+            </div>
+        </div>
+        <!--左部导航结束-->
+        <!--右部内容-->
+        <div class="n-right_content col-lg-10 col-md-10 col-sm-10">
+            <div class="n-right_content_title">
+                <span>资方介绍</span>
+            </div>
+            <div class="n-title_border_cover"></div>
+            <div class="n-right_content_container">
+                <ul class="investment_list">
+                    <li th:each="investor:${investorVOList}">
+                        <h3 class="font_TH" th:text="${investor.name}"> 华影（北京）影视投资管理有限公司</h3>
+                        <p th:text="${investor.introduction}">
+                            成立于2000年，是一家具有专业水准的综合性影视文化机构，公司主要从事大型影视剧的制作，曾与演艺圈有“才女”导演徐静蕾合作《杜拉拉升职记》。公司经过9年的发展已经拥有了稳定的基础，强大的师资顾问团队，香港著名导演陈木川，内地导演杨亚洲等。
+
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">北京宸铭影视文化传媒有限公司
+                        </h3>
+                        <p>
+                            成立于2011年8月，是一家以内容为核心的专业电影投资运营机构。主要涉及领域包括IP研发运营、电影制作、娱乐营销、商务合作、视觉技术等。曾出品《分手合约》《重返20岁》，联合出品《闺蜜》、通过中韩合拍的经验积累、投资经验积累，宸铭创造了一套高效的制片管理机制，并致力于用成熟的产业规则来保障艺术创作、技术创新与市场表现的柔性融合。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">电影频道
+                        </h3>
+                        <p>
+                            是中国大陆一条综合性的电影专业频道，到2006年底，电影频道（CCTV-6）覆盖人口已达8.52亿，年平均收视率和市场占有率在全国卫视频道中名列前茅。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">东海映画（北京）文化传媒有限公司
+                        </h3>
+                        <p>
+                            东海映画是一家集新媒体投资制作、发行推广、广告植入、为一体的新型影视文化传媒公司，公司定位为专注新媒体制片发行的传媒公司。公司主营业务：代理国内外影视作品在大陆地区新媒体的发行推广；代理影视项目在国际电影节的创投融资与影展推广；参与影视项目的广告植入营销。短片《猪肉与月亮》在东海映画国际短片电影节推广运作下，入围第36届克莱蒙费朗短片电影节克莱蒙费朗国际短片电影节是国际领先的短片电影节，素有“短片戛纳”的美誉，以其庞大的观影人数成为法国国内仅次于戛纳电影节的第二大电影盛事。毕赣导演的《金刚经》获得香港短片录像节评审团大奖。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">福建恒业影业有限公司
+                        </h3>
+                        <p>
+                            公司主营全国院线电影发行业务，是目前福建唯一一家专业从事电影营销策划、发行以及拍摄为一体的影视机构。公司由国内最专业的电影营销人才共同结盟设立，立志拓展国内电影市场，开创多元化的电影包装、宣传、推广以及发行渠道。曾发行《浅蓝深蓝》《被偷走的那五年》《决战刹马镇》等多部影片。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">国奥影业
+                        </h3>
+                        <p>
+
+                            隶属于国奥文化产业投资集团，成立于2014年。开展影视投资、制作、发行、娱乐营销、院线管理、影院投资以及艺人经纪等全产业链业务。2015年初，国奥影业以“联动亚洲，影响视界”为愿景，联合亚洲之路俱乐部及亚洲范围内众多优秀电影企业，以香港作为中枢推出亚洲电影计划，打造亚洲电影宣发、亚洲电影投资、亚洲电影版权、亚洲电影创新合作四大中心。2014年投资电影《新兵正传3•蛙人》。成为新加坡贺岁档票房冠军。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">黑蚂蚁影业
+                        </h3>
+
+                        <p>
+                            黑蚂蚁影业专注于影视项目的投资、制作与发行。汇聚了有着共同理想、共同追求、志同道合的实力编剧、制片人，个性导演以及深受观众熟识、喜爱的知名演员。
+                            自公司成立以来依靠敏锐的市场判断力和卓有成效的项目运作能力，形成了符合影视市场的运营体系，并完善了持续发展的经营理念，逐步呈现出自身鲜明的品牌形象。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">上海盛万影视文化有限公司
+                        </h3>
+
+                        <p>
+                            是一家具有投行思维和方法的影视传媒行业创新公司。自2010年起，盛万便在文化投资方面深度参与了版权交易、影视制作发行等文化领域。2013年初，盛万与上影等长期战略伙伴深入合作，发起设立首支以投资电影为主的创新型文化产业投资基金。2015年1月28日，由盛万全力打造的邀请制专业电影众筹平台“投电影”正式上线发布，并同时推出首个电影项目《天将雄师》，该片由国际巨星成龙担任出品人和主演。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">深圳市天华世纪传媒有限公司
+                        </h3>
+
+                        <p>
+                            为有线电视网、互联网、通信网运营商提供各种类型及格式的影视节目，“一站式”数字电视增值业务系统解决方案，以及市场营销推广方案。天华公司密切关注高清内容发展态势，与多家高/标清清节目出品机构建立了长期稳定的国内版权代理合作关系（如HBO、WB、SONY、DISCOVERY、Fashion
+                            TV、DIVA、TVB、SBS、KBS、Cellcast、STAR MOVIE、凤凰卫视、香港TVB8、TVB星河、Babyfirst、华谊兄弟、海润影视、宏梦卡通等）。
+                            作为境外频道的代理商，天华公司和HBO、ESPN、AXN、DIVA Universal、STAR MOVIES、香港TVB8、TVB星河等建立了长期的合作关系。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">世纪百年影业（天津）有限公司
+                        </h3>
+
+                        <p>
+                            公司主营业务为：影视剧投资制作、剧本策划创作、影视剧营销推广、影视拍摄、后期剪辑、特效制作、新媒体内容定制等业务。世纪百年影业（天津）有限公司是由娱乐工场投资。代表项目为《栀子花开》。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">苏宁环球影业投资有限公司
+                        </h3>
+                        <p>
+                            公司希望集苏宁环球集团资本优势和承载力强大的品牌及市场运作能力，充分利用全国著名、江苏省唯一的综合性艺术大学的品牌和人才优势，装备更具冲击力的影视苏军，为如火如荼的中国影视行业文化带来更多活力。在积极创造利润，争取实现经济价值最大化的同时，苏宁环球影业还将努力追求电影的现实生活质感，探索电影的社会价值，充分体现高校和企业的社会责任。《家在水草丰茂的地方》是公司初试牛刀的项目，影片入围第27届东京国际电影节主竞赛单元，和柏林电影节新生代单元。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">耀莱影视文化传媒有限公司
+                        </h3>
+                        <p>
+                            耀莱影视长期与国内一线影星和导演战略合作，是成龙先生在中国地区的独家影视项目运营合作方；其他如冯小刚、张艺谋、陈凯歌、李冰冰、范冰冰、黄晓明等，都是耀莱的深度合作资源；出品电影作品如2009年《大兵小将》、2012年《十二生肖》、2013年《警察故事2013》等，目前合作投拍的项目是即将在2015年春节上映的《天将雄师》。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">优联资本
+                        </h3>
+                        <p>
+                            优联资本成立于2013年，是一家主打跨界传统产业、互联网电商、资本等领域的高端战略咨询及投融资服务机构，关注并参与具有创新意义及前景的商业机会，尤其是在传统产业转型、互联网电商、O2O、医疗、教育、旅游、文化等领域，也参与互联网TMT领域早期项目的投资与孵化。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">幸福蓝海影视文化集团股份有限公司
+                        </h3>
+
+                        <p>
+
+                            业务构成主要有：1、电影业务，含电影生产、电影发行（院线）、电影放映（影城）。2、电视内容业务，主要包括电视剧的生产、制作、发行。主要制作、出品的电影有：《建国大业》、《让子弹飞》、《长江七号》、《建党伟业》、《辛亥革命》、《武侠》、《鸿门宴》、《亲密敌人》；包括最近上映的《命中注定》及《三城记》。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">万达影视传媒有限公司
+                        </h3>
+
+                        <p>
+
+                            隶属于万达集团，成立于2009年，影视传媒公司的成立标志着万达集团正式进军影视行业，开展影视投资、制作、发行、放映及后产品等全产业链业务。投资制作发行的电影包括：《夏洛特烦恼》《滚蛋吧！肿瘤君》《寻龙诀》《咱们结婚吧》《赤道》《一路惊喜》《催眠大师》《单身男女》《归来》《北京爱情故事》《智取威虎山》《白发魔女传之明月天国》《一步之遥》《太极侠》《警察故事2013》《边境风云》《听风者》《亲密敌人》
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">北京太合娱乐文化发展股份有限公司
+                        </h3>
+
+                        <p>
+                            电影业务，秉承以国内外电影市场需求为导向，投资制作、发行高品质、有影响力的商业电影；发掘扶植优秀青年电影创作人才，凝聚华语电影新势力；发挥强劲的营销发行实力，代理发行国内外电影；积极开发以电影版权内容为核心的各种新兴载体、渠道及衍生业务。参与制作发行《咱们结婚吧》《意外的恋爱时光》《露水红颜》《心迷宫》。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">北京唐德国际电影文化有限公司
+                        </h3>
+
+                        <p>
+                            唐德国际文化传媒有限公司是集影视项目投资（电影、电视剧、电视栏目）投资、管理、策划制作及发行能力的全方位一体化的专业影视公司。制作项目：《大兵小将》《天台爱情》
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">九龙品天（北京）文化传播有限公司
+                        </h3>
+
+                        <p>
+                            业内简称龙传媒。公司致力于为电影产品提供专业的媒介公关和活动公关服务。自成立以来已操作电影项目数十部，
+                            《画皮》《高兴》《疯狂的赛车》《未来警察》《唐吉可德》《大闹天宫》《幸存日》《画皮Ⅱ》《硬汉2》《建党伟业》等
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">劳雷影业
+                        </h3>
+
+                        <p>
+                            北京劳雷影业有限公司出品的电影有《苹果》《观音山》《二次曝光》《后会无期》等艺术及商业兼顾的电影，并于2011年3月发行公司出品的电影《观音山》票房近8000万，使得《观音山》的票房成为当年的文艺片票房之王。2012年国庆档发行公司出品的电影《二次曝光》票房过亿，该电影也成为2012年国庆档票房最好的电影。2014年暑期档上映的公司出品的影片《后会无期》再次在票房上取得骄人成绩，该片在营销领域上也同样引人注目。
+                        </p>
+                    </li>
+                    <li th:remove="all">
+                        <h3 class="font_TH">星美影业
+                        </h3>
+
+                        <p>
+
+                            多年来立足于影视娱乐产业最前端。从最初单纯的电影、电视剧项目投资到现今的项目策划管理、宣传发行整合营销、广告商务拓展及数字新媒体终端开发等，形成影视产业链的全面发展。参与制作发行《亲爱的》《黄金时代》《不能说的夏天》《中国合伙人》《杀生》《武侠》等。
+                        </p>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div class="n-content_border_cover"></div>
+        </div>
+        <!--右部内容结束-->
+    </div>
+
+
+</div>
+<div class="m-bottom" th:replace="fragment :: bottom" >
+  <div class="m-bottom-content">
+    <div class="m-bottom-sponsors-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Ffirst.png" alt="logo"/>
+    </div>
+    <div class="m-bottom-label">
+      <p>赞助与鸣谢</p>
+    </div>
+    <div class="m-bottom-sponsors-list">
+      <ul>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fletv.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fyouku.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fthink.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Ftencent.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fyingxiang.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fhaoxi.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fyahoo.png"
+                 alt=""/></li>
+      </ul>
+    </div>
+    <div class="m-bottom-label-end">
+    </div>
+
+  </div>
+</div><!--赞助商-->
+<div class="m-footer" th:replace="fragment :: footer" >
+  <div class="m-footer-content">
+    <div class="m-footer-en">
+      <p>&copy;2006-2013 FIRST International Festival. FIRST International Festival are
+        exclusive trademarks<br/> of FIRST International Film Festival. All rights<br/> reserved. Powered by ECHO
+      </p>
+    </div>
+    <div class="m-footer-ul">
+      <ul>
+        <li>联系我们：西宁FIRST青年电影展组委会</li>
+        <li>地址：北京市朝阳区姚家园南路1号惠通时代广场7号院</li>
+        <li>邮编：100025</li>
+        <li>邮箱：info@firstfilm.org.cn</li>
+        <li>电话：010-85564221</li>
+      </ul>
+    </div>
+    <div class="m-footer-ul">
+      <ul>
+        <li>西宁青禾作用文化传媒有限公司</li>
+        <li>地址：青海省西宁市城中区西大街8号世贸大厦1403室</li>
+        <li>邮编：810000</li>
+        <li>电话：0971-8811552</li>
+      </ul>
+    </div>
+  </div>
+</div><!--底部版权信息-->
+<div class="m-quick-login" th:replace="fragment :: quick-login">
+  <ul>
+    <li><a href=""><span class="iconfont">&#xe66e;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xe7f0;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xf0082;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xe616;</span></a></li>
+    <li><a href=""><span class="iconfont">&#x3441;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xe635;</span></a></li>
+  </ul>
+</div><!--快速登录-->
+
+<!--<button class="returnTop" onclick="pageScroll()">返回顶部</button>-->
+<!--返回顶部-->
+<div class="m-mask" th:replace="fragment :: mask" >
+  <div class="m-register">
+    <div class="m-register-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fregister-logo.png"
+           alt=""/>
+    </div>
+    <div class="m-register-close" onclick="closeMask()">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fclose.png" alt=""/>
+    </div>
+    <div class="m-register-form">
+      <form action="" method="">
+        <input class="m-register-input" type="email" placeholder="邮箱"/>
+        <input class="m-register-input" type="password" placeholder="密码"/>
+        <input class="m-register-input" type="password" placeholder="确认密码"/>
+
+        <div class="m-register-subscribe">
+          <input type="checkbox" id="subscribe"/>
+          <label for="subscribe">订阅邮件</label>
+        </div>
+
+        <input class="m-register-submit" type="button" value="立即注册" onclick="registerSuccess()"/>
+
+        <div class="m-register-policy">
+          <input type="checkbox" id="policy"/>
+
+          <p>我已了解并同意<a href="">《账户权益政策》</a></p>
+        </div>
+
+        <div class="m-register-or">
+          <p>or</p>
+        </div>
+
+        <input type="button" value="登录" onclick="showLogin()"/>
+      </form>
+    </div>
+  </div><!--注册-->
+
+  <div class="m-login">
+    <div class="m-login-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fregister-logo.png"
+           alt=""/>
+    </div>
+    <div class="m-login-close" onclick="closeMask()">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fclose.png" alt=""/>
+    </div>
+    <div class="m-login-form">
+      <form action="" method="">
+        <input class="m-login-input" type="email" placeholder="邮箱"/>
+        <input class="m-login-input" type="password" placeholder="密码"/>
+
+        <div class="m-login-me">
+          <input class="m-left" type="checkbox"/>
+          <span class="m-left">记住我</span>
+          <a href="" class="m-right">忘记密码?</a>
+        </div>
+
+        <input type="submit" value="登录"/>
+
+        <div class="m-login-register">
+          <p>没有帐号?<a onclick="showRegister()">立即注册</a></p>
+        </div>
+      </form>
+    </div>
+  </div><!--登录-->
+
+  <div class="m-register-success">
+    <div class="m-register-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fregister-logo.png"
+           alt=""/>
+    </div>
+    <div class="m-register-close" onclick="closeMask()">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fclose.png" alt=""/>
+    </div>
+    <div class="m-success-hint">
+      <p class="m-success-line"></p>
+
+      <p>注册成功</p>
+
+      <p class="m-success-line"></p>
+    </div>
+    <div class="m-success-mail">
+      <p>验证邮件已发送至<span>aximario@163.com</span>,请<a href="">点击查收邮件</a>激活帐号。</p>
+
+      <p>没有收到邮件?请耐心等待或<a>重新发送</a></p>
+      <a class="m-success-back" onclick="showLogin()">返回登录界面</a>
+    </div>
+  </div><!--提示注册成功-->
+
+</div><!--登录和注册以及提示信息的遮罩-->
+
+
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fjquery.min.js"></script>
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fbootstrap.min.js"></script>
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fjs%2Findex.js"></script>
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fjs%2Fbase.js"></script>
+
+</body>
+</html>

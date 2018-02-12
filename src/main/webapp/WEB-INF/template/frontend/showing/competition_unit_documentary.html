@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>西宁FIRST青年电影展</title>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fbootstrap.min.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fbootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fcss%2Findex.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fcss%2Fbase.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fcss%2Fshowing.css"/>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--头部导航-->
+<div class="m-navbar" th:replace="fragment :: navbar" >
+    <div class="m-navbar-container">
+        <a class="m-navbar-login" onclick="showRegister()">注册</a>
+        <span> | </span>
+        <a class="m-navbar-login" onclick="showLogin()">登陆</a>
+        <a href="" class="m-navbar-lang">English</a>
+
+        <form action="" method="">
+            <input type="text" class="m-navbar-search" placeholder="搜索"/>
+            <button type="submit" class="m-navbar-commit"><i class="iconfont">&#xe645;</i></button>
+        </form>
+    </div>
+</div><!--顶部导航条-->
+<div class="m-header" th:replace="fragment :: header" >
+    <div class="m-header-content">
+        <div class="m-header-logo">
+            <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Flogo.png" alt="logo"/>
+        </div>
+        <div class="m-header-nav-list">
+            <div>
+                <dl>
+                    <dt><a href="../filmtest/about.html">电影节</a></dt>
+                    <dd><a href="../filmtest/about.html">关于我们</a></dd>
+                    <dd><a href="../filmtest/comp_regulations.html">竞赛</a></dd>
+                    <dd><a href="../filmtest/youth.html">青年电影人</a></dd>
+                    <dd><a href="../filmtest/volunteer_manual.html">志愿者</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../showing/special_tribute.html">展映</a></dt>
+                    <dd><a href="../showing/competition_unit_documentary.html">竞赛展映</a></dd>
+                    <dd><a href="../showing/striking_first.html">惊人首作</a></dd>
+                    <dd><a href="../showing/takeshi_exhibition.html">大师之初</a></dd>
+                    <dd><a href="../showing/college_spirit.html">学院精神</a></dd>
+                    <dd><a href="../showing/xining_image.html">西宁镜像</a></dd>
+                    <dd><a href="../showing/continental_quadrant.html">欧陆象限</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../venture_capital/proposal_apply.html">创投会</a></dt>
+                    <dd><a href="../venture_capital/proposal_apply.html">在线报名</a></dd>
+                    <dd><a href="../venture_capital/introduction.html">创投介绍</a></dd>
+                    <dd><a href="../venture_capital/script_review.html">评审&amp;奖项</a></dd>
+                    <dd><a href="../venture_capital/investment_parties.html">资方介绍</a></dd>
+                    <dd><a href="../venture_capital/selected_items.html">入选项目</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../training/training_introduction.html">训练营</a></dt>
+                    <dd><a href="../training/training_introduction.html">训练营介绍</a></dd>
+                    <dd><a href="../training/apply.html">在线报名</a></dd>
+                    <dd><a href="../training/course.html">课程介绍</a></dd>
+                    <dd><a href="../training/tutor.html">导师介绍</a></dd>
+                    <dd><a href="../training/student.html">学员介绍</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../media_center/apply.html">媒体中心</a></dt>
+                    <dd><a href="../media_center/apply.html">媒体报名</a></dd>
+                    <dd><a href="../media_center/news.html">新闻稿件</a></dd>
+                    <dd><a href="../media_center/download_center.html">媒体下载中心</a></dd>
+                    <dd><a href="">视觉系统</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../event/exhibition.html">事件</a></dt>
+                    <dd><a href="../event/exhibition.html">主动放映</a></dd>
+                    <dd><a href="../event/cinematheque.html">青年电影馆</a></dd>
+                    <dd><a href="../event/bingshi_lab.html">并驰LAB</a></dd>
+                    <dd><a href="../event/longyue_plan.html">龙跃计划</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../service/transport_line.html">服务</a></dt>
+                    <dd><a href="../service/transport_line.html">交通线路</a></dd>
+                    <dd><a href="../service/hotel.html">酒店住宿</a></dd>
+                    <dd><a href="../service/diet.html">饮食</a></dd>
+                    <dd><a href="../service/tips.html">贴士</a></dd>
+                    <dd><a href="../service/keepsake.html">纪念品</a></dd>
+                    <dd><a href="../service/exhibition_venue.html">展映场地&amp;排期</a></dd>
+                    <dd><a href="">票务信息</a></dd>
+                    <dd><a href="">展映手册下载</a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部导航-->
+<div class="container-fluid n-content">
+    <div class="row">
+        <!--左部导航-->
+        <div class="n-left_content col-lg-3 col-md-3 col-sm-3">
+            <ul class="n-nav_left">
+                <li ><a href="/showing/special_tribute" th:href="@{/showing/special_tribute}">特别致敬</a></li>
+                <li  class="clearfix active">
+                    <a>主竞赛单元<span class="n-triangle pull-right"></span></a>
+                </li>
+                <ul class="n-nav_second">
+                    <li><a href="/showing/competition_unit_short" th:href="@{/showing/competition_unit_short}">短片</a></li>
+                    <li><a class="active" href="/showing/competition_unit_documentary" th:href="@{/showing/competition_unit_documentary}" >纪录片</a></li>
+                    <li><a href="/showing/competition_unit_feature" th:href="@{/showing/competition_unit_feature}">剧情长篇</a></li>
+                    <li><a href="/showing/competition_unit_animation" th:href="@{/showing/competition_unit_animation}">动画&amp;实验</a></li>
+                </ul>
+                <li><a href="/showing/takeshi_exhibition" th:href="@{/showing/takeshi_exhibition}">全景北野武个展</a></li>
+                <li><a href="/showing/xining_image" th:href="@{/showing/xining_image}">西宁镜像</a></li>
+                <li><a href="/showing/college_spirit" th:href="@{/showing/college_spirit}">学院精神</a></li>
+                <li><a href="/showing/continental_quadrant" th:href="@{/showing/continental_quadrant}">欧陆象限</a></li>
+                <li><a href="/showing/striking_first" th:href="@{/showing/striking_first}">惊人首作</a></li>
+                <li><a>开闭幕<span class="n-triangle pull-right"></span></a></li>
+                <ul class="n-nav_second hide">
+                    <li><a href="/showing/open" th:href="@{/showing/open}" >开幕</a></li>
+                    <li><a href="/showing/close" th:href="@{/showing/close}" >闭幕</a></li>
+                </ul>
+            </ul>
+
+            <div class="n-left_img">
+                <div>
+                    <img src=" http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fleft_nav%2Fimg1.png" alt="图片1"/>
+                </div>
+                <div>
+                    <img src=" http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fleft_nav%2Fimg2.png" alt="图片2"/>
+                </div>
+                <div>
+                    <img src=" http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fleft_nav%2Fimg3.png" alt="图片3"/>
+                </div>
+            </div>
+        </div>
+        <!--左部导航结束-->
+        <!--右部内容-->
+        <div class="n-right_content col-lg-10 col-md-10 col-sm-10">
+            <div class="n-right_content_title">
+                <span>纪录片</span>
+            </div>
+            <div class="n-title_border_cover"></div>
+            <div class="n-right_content_container">
+              <ul class="n-movie_list">
+                  <li class="n-movie_item" th:each="movie:${movieSimpleVOList}">
+                      <div class="n-movie_item_top clearfix">
+                          <div class="n-left_wrap pull-left">
+                              <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fshowing%2《Triangle》.jpg" alt="" th:src="@{${movie.imageUrl}}"/>
+                          </div>
+                          <div class="n-right_wrap pull-left">
+                              <span class="font_TH n-movie_title" th:text="${movie.name}">《她她他》Triangle</span>
+                              <br/>
+                              <span th:text="${movie.firstType}">青海首映</span>
+                              <br/>
+                              <span th:text="${movie.attribute}">中国|2015|彩色|21min|中英文字幕|剧情</span>
+                              <table>
+                                  <tr th:each="group:${movie.groupList}">
+                                      <td th:each="attr:${group}" th:text="${attr}">导演：杨若昀</td>
+                                      <td th:remove="all"> 编剧：Charles Woolward</td>
+                                  </tr>
+                                  <tr th:remove="all">
+                                      <td>摄影：Oneris Rico</td>
+                                      <td> 剪辑：Rafael Becerra</td>
+                                  </tr>
+                                  <tr th:remove="all">
+                                      <td>音效：刘琪</td>
+                                      <td> 音乐：Kai Engel</td>
+                                  </tr>
+
+                              </table>
+
+                          </div>
+                      </div>
+                      <div class="n-movie_item_bottom">
+                          <span class="font_TH">影片简介:Synopsis</span>
+                          <p th:text="${movie.description}">故事发生在2037年，一夫一妻制不再是唯一合理的标准。越来越多人相信，在三个人之间展开的恋情比两个人更加稳定，长久并且合理。当我们的三个主人公决定要一起生一个孩子，却由于当时的计划生育政策原因，必须经历28天的资格测试合格之后才能获得父母资格证并被准许生育。在这28天期间，当他们以为人父母的标准来衡量自己，重新审视这份感情以及彼此之间的相处时，才发现，感情与责任，都没有那么简单。
+
+                          </p>
+                          <span class="font_TH">导演阐述：</span>
+                          <p th:text="${movie.state}">当我们长久地习惯和接受了一种广泛存在的关系模式之后,  很少有人会去设想除了这种模式之外的其他可能性。很多乍看荒唐的形态，其实未必没有其合理性。在所有几何图形中，个人以为，三角形尤其有美感，这一点在古埃及人的审美倾向中有很明显的体现，在当今的摄影构图的各种所谓法则中也不断地被实践。也许是因为它所独具的稳定性特点。如果用几何定律来比喻人的关系是被允许的，那么三角形的稳定性也许碰巧正是爱情关系的一个有趣的印证——或讽刺。
+                          </p>
+                      </div>
+                  </li>
+                  <li class="n-movie_item" th:remove="all">
+                      <div class="n-movie_item_top clearfix">
+                          <div class="n-left_wrap pull-left">
+                              <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fshowing%2《不即不离》.jpg" alt=""/>
+                          </div>
+                          <div class="n-right_wrap pull-left">
+                              <span class="font_TH n-movie_title">《不即不离》 Absent without leave</span>
+                              <br/>
+                              <span>亚洲首映</span>
+                              <br/>
+                              <span>中国台湾|2014|彩色|40min| 中英文字幕|纪录</span>
+                              <table>
+                                  <tr>
+                                      <td>导演：廖克发</td>
+                                      <td> 摄影：廖克发</td>
+                                  </tr>
+                                  <tr>
+                                      <td>剪辑: 廖克发</td>
+                                      <td> 音乐：陈明章</td>
+                                  </tr>
+
+                              </table>
+
+                          </div>
+                      </div>
+                      <div class="n-movie_item_bottom">
+                          <span class="font_TH">影片简介:Synopsis</span>
+                          <p>35年前，这里曾经是我出生、成长的老木屋。如今老木屋已经被迁走，只留下翻新的土地。这里不只是家族三代人的记忆，同時也是我对祖父母最后的记忆。直到长大成人，我才明白，常挂在老家大厅上的那张画像是我从未见过的阿公，而那间木屋也是他在参加反殖民战爭中被枪决的最后地点。60年來，这张画像成为家人的禁忌，沒人能提及这个男人，他的名字，或是任何他的过去。历经1942-1945年的激烈抗日战争后，转而加入了马来西亚共产党的阿公加入了反英国殖民的战斗，1950年被枪决。这部纪录片將揭开被历史掩埋，不被承认的历史事迹，秘密一直隐埋在这间木屋中许多年。
+                          </p>
+                          <p> Story begins with a man’s portrait, which has been hanging for more than 30 years in my old wooden house in Perak of Malaysia. It’s long become a taboo that my families never to mention this man, never to bring up his name or his past. Only since years ago, I found out that this man is my grandpa, who is MCP soldier and sacrificed his life in independent fight in 1949. For years, many young Malaysian like me grow up without knowledge of true history and shadowed by fear to know more. We were mystified and clouded by biased history to be told by education and media. This film is about my search of my absent grandpa but without leave from my families’ memories. Like many others, we all have beloved yet forgotten families, lost in the deep rainforest, waiting to be found.  </p>
+                          <span class="font_TH">导演阐述：</span>
+                          <p>他们的故事在马来西亚被禁了六十年，希望这部片能夠呈现部分原貌，为那些在森林中牺牲了性命、青春岁月、不即不离的人们。希望这部影片让马来西亚年轻人更明白我们从何而來、我们是谁、重新思考马来西亚人往哪里去？</p>
+                            <p>
+                                They sacrificed their lives, fighting for independence of Malaysia, but their stories untold, banned and buried for 60 years. This film uncovers the memories of these, absent without leave, awaiting for their justice and truth to be known. I hope this film will remind us, as young Malaysian to think about who we are, where do we come from and be critical, where should we go from now?
+                            </p>
+                      </div>
+                  </li>
+                  <li class="n-movie_item" th:remove="all">
+                      <div class="n-movie_item_top clearfix">
+                          <div class="n-left_wrap pull-left">
+                              <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fshowing%2《短剧》.jpg" alt=""/>
+                          </div>
+                          <div class="n-right_wrap pull-left">
+                              <span class="font_TH n-movie_title">《短剧》 Drama</span>
+                              <br/>
+                              <span>亚洲首映</span>
+                              <br/>
+                              <span>中国|2014|彩色|11min|英文字幕|剧情</span>
+                              <table>
+                                  <tr>
+                                      <td>导演：关天</td>
+                                      <td> 编剧：关天</td>
+                                  </tr>
+                                  <tr>
+                                      <td>剪辑：关天</td>
+                                      <td> 音效：关天</td>
+                                  </tr>
+
+                              </table>
+
+                          </div>
+                      </div>
+                      <div class="n-movie_item_bottom">
+                          <span class="font_TH">影片简介:Synopsis</span>
+                          <p>半夜的一个路口，车里的一对男女刚要“车震”，却发现没有了避孕套，女孩拒绝继续，男孩饥渴难耐却也没辙，正在此时，一个身着妖艳的女子走过街道，女孩认定她是个妓女，要男孩去向她要个避孕套，可男孩却不这么认为，正在二人争辩之际，一个男子走到街边女子旁边……
+                          </p>
+                          <span class="font_TH">导演阐述：</span>
+                          <p>这部作品是我在锡拉丘兹大学的研究生毕业作品。当时，伊朗导演阿巴斯来到我校做工作室，我参与其中，每个人都要求拍一部短片，故有此作。我想通过画面里和画面外两组人物关系来讲述一个关于两性之间微妙关系的一个喜剧故事。 </p>
+                      </div>
+                  </li>
+              </ul>
+
+            </div>
+            <div class="n-content_border_cover"></div>
+        </div>
+        <!--右部内容结束-->
+    </div>
+
+
+</div>
+<div class="m-bottom" th:replace="fragment :: bottom" >
+  <div class="m-bottom-content">
+    <div class="m-bottom-sponsors-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Ffirst.png" alt="logo"/>
+    </div>
+    <div class="m-bottom-label">
+      <p>赞助与鸣谢</p>
+    </div>
+    <div class="m-bottom-sponsors-list">
+      <ul>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fletv.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fyouku.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fthink.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Ftencent.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fyingxiang.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fhaoxi.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fyahoo.png"
+                 alt=""/></li>
+      </ul>
+    </div>
+    <div class="m-bottom-label-end">
+    </div>
+
+  </div>
+</div><!--赞助商-->
+<div class="m-footer" th:replace="fragment :: footer" >
+  <div class="m-footer-content">
+    <div class="m-footer-en">
+      <p>&copy;2006-2013 FIRST International Festival. FIRST International Festival are
+        exclusive trademarks<br/> of FIRST International Film Festival. All rights<br/> reserved. Powered by ECHO
+      </p>
+    </div>
+    <div class="m-footer-ul">
+      <ul>
+        <li>联系我们：西宁FIRST青年电影展组委会</li>
+        <li>地址：北京市朝阳区姚家园南路1号惠通时代广场7号院</li>
+        <li>邮编：100025</li>
+        <li>邮箱：info@firstfilm.org.cn</li>
+        <li>电话：010-85564221</li>
+      </ul>
+    </div>
+    <div class="m-footer-ul">
+      <ul>
+        <li>西宁青禾作用文化传媒有限公司</li>
+        <li>地址：青海省西宁市城中区西大街8号世贸大厦1403室</li>
+        <li>邮编：810000</li>
+        <li>电话：0971-8811552</li>
+      </ul>
+    </div>
+  </div>
+</div><!--底部版权信息-->
+<div class="m-quick-login" th:replace="fragment :: quick-login">
+  <ul>
+    <li><a href=""><span class="iconfont">&#xe66e;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xe7f0;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xf0082;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xe616;</span></a></li>
+    <li><a href=""><span class="iconfont">&#x3441;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xe635;</span></a></li>
+  </ul>
+</div><!--快速登录-->
+
+<!--<button class="returnTop" onclick="pageScroll()">返回顶部</button>-->
+<!--返回顶部-->
+<div class="m-mask" th:replace="fragment :: mask" >
+  <div class="m-register">
+    <div class="m-register-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fregister-logo.png"
+           alt=""/>
+    </div>
+    <div class="m-register-close" onclick="closeMask()">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fclose.png" alt=""/>
+    </div>
+    <div class="m-register-form">
+      <form action="" method="">
+        <input class="m-register-input" type="email" placeholder="邮箱"/>
+        <input class="m-register-input" type="password" placeholder="密码"/>
+        <input class="m-register-input" type="password" placeholder="确认密码"/>
+
+        <div class="m-register-subscribe">
+          <input type="checkbox" id="subscribe"/>
+          <label for="subscribe">订阅邮件</label>
+        </div>
+
+        <input class="m-register-submit" type="button" value="立即注册" onclick="registerSuccess()"/>
+
+        <div class="m-register-policy">
+          <input type="checkbox" id="policy"/>
+
+          <p>我已了解并同意<a href="">《账户权益政策》</a></p>
+        </div>
+
+        <div class="m-register-or">
+          <p>or</p>
+        </div>
+
+        <input type="button" value="登录" onclick="showLogin()"/>
+      </form>
+    </div>
+  </div><!--注册-->
+
+  <div class="m-login">
+    <div class="m-login-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fregister-logo.png"
+           alt=""/>
+    </div>
+    <div class="m-login-close" onclick="closeMask()">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fclose.png" alt=""/>
+    </div>
+    <div class="m-login-form">
+      <form action="" method="">
+        <input class="m-login-input" type="email" placeholder="邮箱"/>
+        <input class="m-login-input" type="password" placeholder="密码"/>
+
+        <div class="m-login-me">
+          <input class="m-left" type="checkbox"/>
+          <span class="m-left">记住我</span>
+          <a href="" class="m-right">忘记密码?</a>
+        </div>
+
+        <input type="submit" value="登录"/>
+
+        <div class="m-login-register">
+          <p>没有帐号?<a onclick="showRegister()">立即注册</a></p>
+        </div>
+      </form>
+    </div>
+  </div><!--登录-->
+
+  <div class="m-register-success">
+    <div class="m-register-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fregister-logo.png"
+           alt=""/>
+    </div>
+    <div class="m-register-close" onclick="closeMask()">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fclose.png" alt=""/>
+    </div>
+    <div class="m-success-hint">
+      <p class="m-success-line"></p>
+
+      <p>注册成功</p>
+
+      <p class="m-success-line"></p>
+    </div>
+    <div class="m-success-mail">
+      <p>验证邮件已发送至<span>aximario@163.com</span>,请<a href="">点击查收邮件</a>激活帐号。</p>
+
+      <p>没有收到邮件?请耐心等待或<a>重新发送</a></p>
+      <a class="m-success-back" onclick="showLogin()">返回登录界面</a>
+    </div>
+  </div><!--提示注册成功-->
+
+</div><!--登录和注册以及提示信息的遮罩-->
+
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fjquery.min.js"></script>
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fbootstrap.min.js"></script>
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fjs%2Findex.js"></script>
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fjs%2Fbase.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>西宁FIRST青年电影展</title>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fbootstrap.min.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fbootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fcss%2Findex.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fcss%2Fbase.css"/>
+    <link rel="stylesheet" href="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fcss%2Fshowing.css"/>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--头部导航-->
+<div class="m-navbar" th:replace="fragment :: navbar" >
+    <div class="m-navbar-container">
+        <a class="m-navbar-login" onclick="showRegister()">注册</a>
+        <span> | </span>
+        <a class="m-navbar-login" onclick="showLogin()">登陆</a>
+        <a href="" class="m-navbar-lang">English</a>
+
+        <form action="" method="">
+            <input type="text" class="m-navbar-search" placeholder="搜索"/>
+            <button type="submit" class="m-navbar-commit"><i class="iconfont">&#xe645;</i></button>
+        </form>
+    </div>
+</div><!--顶部导航条-->
+<div class="m-header" th:replace="fragment :: header" >
+    <div class="m-header-content">
+        <div class="m-header-logo">
+            <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Flogo.png" alt="logo"/>
+        </div>
+        <div class="m-header-nav-list">
+            <div>
+                <dl>
+                    <dt><a href="../filmtest/about.html">电影节</a></dt>
+                    <dd><a href="../filmtest/about.html">关于我们</a></dd>
+                    <dd><a href="../filmtest/comp_regulations.html">竞赛</a></dd>
+                    <dd><a href="../filmtest/youth.html">青年电影人</a></dd>
+                    <dd><a href="../filmtest/volunteer_manual.html">志愿者</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../showing/special_tribute.html">展映</a></dt>
+                    <dd><a href="../showing/competition_unit_documentary.html">竞赛展映</a></dd>
+                    <dd><a href="../showing/striking_first.html">惊人首作</a></dd>
+                    <dd><a href="../showing/takeshi_exhibition.html">大师之初</a></dd>
+                    <dd><a href="../showing/college_spirit.html">学院精神</a></dd>
+                    <dd><a href="../showing/xining_image.html">西宁镜像</a></dd>
+                    <dd><a href="../showing/continental_quadrant.html">欧陆象限</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../venture_capital/proposal_apply.html">创投会</a></dt>
+                    <dd><a href="../venture_capital/proposal_apply.html">在线报名</a></dd>
+                    <dd><a href="../venture_capital/introduction.html">创投介绍</a></dd>
+                    <dd><a href="../venture_capital/script_review.html">评审&amp;奖项</a></dd>
+                    <dd><a href="../venture_capital/investment_parties.html">资方介绍</a></dd>
+                    <dd><a href="../venture_capital/selected_items.html">入选项目</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../training/training_introduction.html">训练营</a></dt>
+                    <dd><a href="../training/training_introduction.html">训练营介绍</a></dd>
+                    <dd><a href="../training/apply.html">在线报名</a></dd>
+                    <dd><a href="../training/course.html">课程介绍</a></dd>
+                    <dd><a href="../training/tutor.html">导师介绍</a></dd>
+                    <dd><a href="../training/student.html">学员介绍</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../media_center/apply.html">媒体中心</a></dt>
+                    <dd><a href="../media_center/apply.html">媒体报名</a></dd>
+                    <dd><a href="../media_center/news.html">新闻稿件</a></dd>
+                    <dd><a href="../media_center/download_center.html">媒体下载中心</a></dd>
+                    <dd><a href="">视觉系统</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../event/exhibition.html">事件</a></dt>
+                    <dd><a href="../event/exhibition.html">主动放映</a></dd>
+                    <dd><a href="../event/cinematheque.html">青年电影馆</a></dd>
+                    <dd><a href="../event/bingshi_lab.html">并驰LAB</a></dd>
+                    <dd><a href="../event/longyue_plan.html">龙跃计划</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="../service/transport_line.html">服务</a></dt>
+                    <dd><a href="../service/transport_line.html">交通线路</a></dd>
+                    <dd><a href="../service/hotel.html">酒店住宿</a></dd>
+                    <dd><a href="../service/diet.html">饮食</a></dd>
+                    <dd><a href="../service/tips.html">贴士</a></dd>
+                    <dd><a href="../service/keepsake.html">纪念品</a></dd>
+                    <dd><a href="../service/exhibition_venue.html">展映场地&amp;排期</a></dd>
+                    <dd><a href="">票务信息</a></dd>
+                    <dd><a href="">展映手册下载</a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部导航-->
+<div class="container-fluid n-content">
+    <div class="row">
+        <!--左部导航-->
+        <div class="n-left_content col-lg-3 col-md-3 col-sm-3">
+            <ul class="n-nav_left">
+                <li ><a href="/showing/special_tribute" th:href="@{/showing/special_tribute}">特别致敬</a></li>
+                <li  class="clearfix">
+                    <a>主竞赛单元<span class="n-triangle pull-right"></span></a>
+                </li>
+                <ul class="n-nav_second hide">
+                    <li><a href="/showing/competition_unit_short" th:href="@{/showing/competition_unit_short}">短片</a></li>
+                    <li><a href="/showing/competition_unit_documentary" th:href="@{/showing/competition_unit_documentary}" >纪录片</a></li>
+                    <li><a href="/showing/competition_unit_feature" th:href="@{/showing/competition_unit_feature}">剧情长篇</a></li>
+                    <li><a href="/showing/competition_unit_animation" th:href="@{/showing/competition_unit_animation}">动画&amp;实验</a></li>
+                </ul>
+                <li><a href="/showing/takeshi_exhibition" th:href="@{/showing/takeshi_exhibition}">全景北野武个展</a></li>
+                <li class="active"><a href="/showing/xining_image" th:href="@{/showing/xining_image}">西宁镜像</a></li>
+                <li><a href="/showing/college_spirit" th:href="@{/showing/college_spirit}">学院精神</a></li>
+                <li><a href="/showing/continental_quadrant" th:href="@{/showing/continental_quadrant}">欧陆象限</a></li>
+                <li><a href="/showing/striking_first" th:href="@{/showing/striking_first}">惊人首作</a></li>
+                <li><a>开闭幕<span class="n-triangle pull-right"></span></a></li>
+                <ul class="n-nav_second hide">
+                    <li><a href="/showing/open" th:href="@{/showing/open}" >开幕</a></li>
+                    <li><a href="/showing/close" th:href="@{/showing/close}" >闭幕</a></li>
+                </ul>
+            </ul>
+            <div class="n-left_img">
+                <div>
+                    <img src=" http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fleft_nav%2Fimg1.png" alt="图片1"/>
+                </div>
+                <div>
+                    <img src=" http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fleft_nav%2Fimg2.png" alt="图片2"/>
+                </div>
+                <div>
+                    <img src=" http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fleft_nav%2Fimg3.png" alt="图片3"/>
+                </div>
+            </div>
+        </div>
+        <!--左部导航结束-->
+        <!--右部内容-->
+        <div class="n-right_content col-lg-10 col-md-10 col-sm-10">
+            <div class="n-right_content_title">
+                <span>西宁镜像</span>
+            </div>
+            <div class="n-title_border_cover"></div>
+            <div class="n-right_content_container">
+                <article class="preface clearfix">
+                    <h3 class="font_TH">西宁镜像导语</h3>
+                    <section>
+                        FIRST自今年起设立“西宁镜像”，一个开放式非竞赛展映单元，旨在针对世界电影内正在发生的议题及正在形成的母题进行年度趋同性主题截留，提供观众具有不同策展序列及视角的集中观看体验，丰富电影作为公共空间的开放性和市民生活的文化属性。
+                    </section>
+                    <section>
+                        本届“西宁镜像”设立少数民族题材议题，分别选取以藏族、蒙古族、土家族为载体的4部电影。这些发生在不同文化背景及景观区域中的故事，既有独特的美学意志，亦有朴素的族志传说。
+                    </section>
+                    <section>
+                        由谢飞执导的《益西卓玛》将作为本单元开幕影片。影片摄于2000年，以编年体形式讲述了一个动人的爱情故事，同时在民族电影形态与主体意识上做出崭新尝试。
+                    </section>
+                    <section>
+                        另外三部影片均制作于当代。《河》同为藏族题材影片，在时间坐标上，与《益西卓玛》一起代表着两种截然不同的作者身份与美学尝试，希望可以带给观众不同的电影观感。《布基兰》、《天降》分别为蒙古族、土家族题材，在不用语境中讲述了融通与族志的精彩故事。
+                    </section>
+                    <section class="preface  pull-right">
+                        FIRST青年电影展策展部
+                        <br/>Xining Image</section>
+                               </article>
+                <article class="clearfix">
+                    <section>
+                        To complete cinema’s duty as to offer a public space and reach out to the film audience, FIRST launched “Xining Image” this year, an open, out of competition grogram aiming at presenting and preserving the on-going speeches world cinema is delivering and the mother subject brought up from within. “Xining Image” offers a collective experience to the audience from a new exhibition order and unique viewpoint.
+                    </section>
+                    <section>
+                        This year, “Xining Image” touches on the topic of the ethnic minorities, presenting four films based on the life of the Zang, the Mongolian, and the Tujia people. The stories take place at different cultural backgrounds and social classes, and have their very own aesthetics and legendary.
+                    </section>
+                    <section>
+                        Xining Image has selected Song of Tibet, a film by Xie Fei, as the opening film. The film was shot in 2002, telling in chronological a touching love story. It was the director’s first attempt to have put together the national ideology and the collective consciousness.
+                    </section>
+                    <section>
+                        The other three films were more recent. Like Song of Tibet, The River is a film about the Zang people. Despite the different upbringings the two directors come from, the ultimate aesthetics of The River and Song of Tibet are the same: to bring the audience closer to the Zang people. Bu Ji Lan and Red Mountain are two films concerning the Mongolian and the Tujia people respectively, share with the audience their world of wonderfulness under different contexts.
+
+                    </section>
+
+                    <section class="pull-right">
+                        Department of Programme
+                        <br/> FIRST International Film Festival
+                    </section>
+
+
+                </article>
+              <ul class="n-movie_big_list">
+                  <li th:each="movie:${movieSimpleVOList}">
+                      <div class="item_top">
+                              <h2 class="font_TH" th:text="${movie.name}">《菊次郎的夏天》 菊次郎の夏</h2>
+                          <div class="item_content">
+                          <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Fshowing%2xining_image1.png" alt="" th:src="@{${movie.imageUrl}}"/>
+                              <span th:text="${movie.firstType}">青海首映</span>
+                              <br/>
+                              <span th:text="${movie.attribute}">中国|2015|彩色|21min|中英文字幕|剧情</span>
+                              <table>
+                                  <tr th:each="group:${movie.groupList}">
+                                      <td th:each="attr:${group}" th:text="${attr}">导演：杨若昀</td>
+                                      <td th:remove="all"> 编剧：Charles Woolward</td>
+                                  </tr>
+                                  <tr th:remove="all">
+                                      <td>摄影：Oneris Rico</td>
+                                      <td> 剪辑：Rafael Becerra</td>
+                                  </tr>
+                                  <tr th:remove="all">
+                                      <td>音效：刘琪</td>
+                                      <td> 音乐：Kai Engel</td>
+                                  </tr>
+
+                              </table>
+                          </div>
+                      </div>
+                      <div class="item_bottom">
+                          <article>
+                              <h4 class="font_TH">影片简介Synopis</h4>
+                              <section th:text="${movie.description}">
+                                  暑假到来，自幼丧父的小学三年级学生正男（关口雄介饰），如今和奶奶生活在一起，暑假特别无聊。他拿出母亲从外地寄回的信，准备自己一个人去爱知县丰桥市看望母亲。
+
+                              </section>
+                              <section>
+                                  邻居阿姨（岸本加世子饰）发现后，决定帮正男完成心愿。她拿出一笔钱做为旅费，还安排游手好闲的老公菊次郎（北野武饰）陪伴正男一起踏上寻母之途。可是在第一天，菊次郎就把老婆给的钱全部输光，于是两个人只好步行前往爱知。
+
+                              </section>
+                              <section>
+                                  一路搭顺风车，惹了不少麻烦后，菊次郎终于带着正男到了他母亲的家，但小男孩却十分沮丧。归途中，菊次郎努力安慰他，二人过得十分愉快，夏天就这么过去了。
+
+                              </section>
+                              <section>
+                                  Brash, loudmouthed and opportunistic, Kikujiro hardly seems the ideal companion for little Masao who is determined to travel long distances to see the mother he has never met. Their excursion to the cycle races is the first of a series of adventures for the unlikely pair which soon turns out to be a whimsical journey of laughter and tears with a wide array of surprises and odd ball characters to meet along the way.
+                              </section></article>
+                      </div>
+
+                  </li>
+
+
+              </ul>
+
+            </div>
+            <div class="n-content_border_cover"></div>
+        </div>
+        <!--右部内容结束-->
+    </div>
+
+
+</div>
+<div class="m-bottom" th:replace="fragment :: bottom" >
+  <div class="m-bottom-content">
+    <div class="m-bottom-sponsors-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Ffirst.png" alt="logo"/>
+    </div>
+    <div class="m-bottom-label">
+      <p>赞助与鸣谢</p>
+    </div>
+    <div class="m-bottom-sponsors-list">
+      <ul>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fletv.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fyouku.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fthink.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Ftencent.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fyingxiang.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fhaoxi.png"
+                 alt=""/></li>
+        <li><img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fyahoo.png"
+                 alt=""/></li>
+      </ul>
+    </div>
+    <div class="m-bottom-label-end">
+    </div>
+
+  </div>
+</div><!--赞助商-->
+<div class="m-footer" th:replace="fragment :: footer" >
+  <div class="m-footer-content">
+    <div class="m-footer-en">
+      <p>&copy;2006-2013 FIRST International Festival. FIRST International Festival are
+        exclusive trademarks<br/> of FIRST International Film Festival. All rights<br/> reserved. Powered by ECHO
+      </p>
+    </div>
+    <div class="m-footer-ul">
+      <ul>
+        <li>联系我们：西宁FIRST青年电影展组委会</li>
+        <li>地址：北京市朝阳区姚家园南路1号惠通时代广场7号院</li>
+        <li>邮编：100025</li>
+        <li>邮箱：info@firstfilm.org.cn</li>
+        <li>电话：010-85564221</li>
+      </ul>
+    </div>
+    <div class="m-footer-ul">
+      <ul>
+        <li>西宁青禾作用文化传媒有限公司</li>
+        <li>地址：青海省西宁市城中区西大街8号世贸大厦1403室</li>
+        <li>邮编：810000</li>
+        <li>电话：0971-8811552</li>
+      </ul>
+    </div>
+  </div>
+</div><!--底部版权信息-->
+<div class="m-quick-login" th:replace="fragment :: quick-login">
+  <ul>
+    <li><a href=""><span class="iconfont">&#xe66e;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xe7f0;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xf0082;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xe616;</span></a></li>
+    <li><a href=""><span class="iconfont">&#x3441;</span></a></li>
+    <li><a href=""><span class="iconfont">&#xe635;</span></a></li>
+  </ul>
+</div><!--快速登录-->
+
+<!--<button class="returnTop" onclick="pageScroll()">返回顶部</button>-->
+<!--返回顶部-->
+<div class="m-mask" th:replace="fragment :: mask" >
+  <div class="m-register">
+    <div class="m-register-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fregister-logo.png"
+           alt=""/>
+    </div>
+    <div class="m-register-close" onclick="closeMask()">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fclose.png" alt=""/>
+    </div>
+    <div class="m-register-form">
+      <form action="" method="">
+        <input class="m-register-input" type="email" placeholder="邮箱"/>
+        <input class="m-register-input" type="password" placeholder="密码"/>
+        <input class="m-register-input" type="password" placeholder="确认密码"/>
+
+        <div class="m-register-subscribe">
+          <input type="checkbox" id="subscribe"/>
+          <label for="subscribe">订阅邮件</label>
+        </div>
+
+        <input class="m-register-submit" type="button" value="立即注册" onclick="registerSuccess()"/>
+
+        <div class="m-register-policy">
+          <input type="checkbox" id="policy"/>
+
+          <p>我已了解并同意<a href="">《账户权益政策》</a></p>
+        </div>
+
+        <div class="m-register-or">
+          <p>or</p>
+        </div>
+
+        <input type="button" value="登录" onclick="showLogin()"/>
+      </form>
+    </div>
+  </div><!--注册-->
+
+  <div class="m-login">
+    <div class="m-login-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fregister-logo.png"
+           alt=""/>
+    </div>
+    <div class="m-login-close" onclick="closeMask()">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fclose.png" alt=""/>
+    </div>
+    <div class="m-login-form">
+      <form action="" method="">
+        <input class="m-login-input" type="email" placeholder="邮箱"/>
+        <input class="m-login-input" type="password" placeholder="密码"/>
+
+        <div class="m-login-me">
+          <input class="m-left" type="checkbox"/>
+          <span class="m-left">记住我</span>
+          <a href="" class="m-right">忘记密码?</a>
+        </div>
+
+        <input type="submit" value="登录"/>
+
+        <div class="m-login-register">
+          <p>没有帐号?<a onclick="showRegister()">立即注册</a></p>
+        </div>
+      </form>
+    </div>
+  </div><!--登录-->
+
+  <div class="m-register-success">
+    <div class="m-register-logo">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fregister-logo.png"
+           alt=""/>
+    </div>
+    <div class="m-register-close" onclick="closeMask()">
+      <img src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fimg%2Findex%2Fclose.png" alt=""/>
+    </div>
+    <div class="m-success-hint">
+      <p class="m-success-line"></p>
+
+      <p>注册成功</p>
+
+      <p class="m-success-line"></p>
+    </div>
+    <div class="m-success-mail">
+      <p>验证邮件已发送至<span>aximario@163.com</span>,请<a href="">点击查收邮件</a>激活帐号。</p>
+
+      <p>没有收到邮件?请耐心等待或<a>重新发送</a></p>
+      <a class="m-success-back" onclick="showLogin()">返回登录界面</a>
+    </div>
+  </div><!--提示注册成功-->
+
+</div><!--登录和注册以及提示信息的遮罩-->
+
+
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fjquery.min.js"></script>
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Flib%2Fbootstrap.min.js"></script>
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fjs%2Findex.js"></script>
+<script src="http://festivalxn.oss-cn-hangzhou.aliyuncs.com/frontend%2Fjs%2Fbase.js"></script>
+
+</body>
+</html>

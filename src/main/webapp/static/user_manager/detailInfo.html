@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/admin/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/admin/themes/icon.css" />
+    <script type="text/javascript" src="../../assets/admin/jquery.min.js"></script>
+    <script type="text/javascript" src="../../assets/admin/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div id="detail_info">
+        <div id="detail_info_opt">
+            <a href="javascript:void(0)" class="easyui-linkbutton"
+               data-options="iconCls:'icon-user-add',plain:true"
+               onclick="addUser('detail_info_list')">增加用户</a>
+           <a href="javascript:void(0)" class="easyui-linkbutton"
+               data-options="iconCls:'icon-user-edit',plain:true"
+               onclick="updateUser('detail_info_list')">修改用户</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton"
+               data-options="iconCls:'icon-user-delete',plain:true"
+               onclick="removeUser('detail_info_list')">删除用户</a>
+        </div>
+
+        <table id="detail_info_list" class="easyui-datagrid" title="用户信息列表"
+               data-options="toolbar:'#detail_info_opt'">
+            <thead>
+                <tr>
+                    <th data-options="field:'id',width:100"hidden="hidden">ID</th>
+                    <th data-options="field:'userName',width:100">用户名</th>
+                    <th data-options="field:'avater_url',width:150,formatter:imgFormatter">头像</th>
+                    <th data-options="field:'source',width:100">source</th>
+                    <th data-options="field:'email',width:100">邮箱</th>
+                    <th data-options="field:'label',width:200">身份</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div id="add_user_win" class="easyui-window" title="用户信息"
+         data-options="collapsible:false,minimizable:false,maximizable:false,iconCls:'icon-save',closed:true">
+        <div class="easyui-panel" style="width:400px">
+            <div style="padding:10px 60px 20px 60px">
+                <form id="fau" method="post">
+                    <table cellpadding="5">
+                        <tr>
+                            <td>用户名</td>
+                            <td><input class="easyui-textbox" type="text" name="userName"
+                                data-options="required:true">
+                            </td>
+                        </tr>
+                    </table>
+
+                </form>
+            </div>
+            <div style="text-align:center;padding:5px">
+                <a href="javascript:void(0)"class="easyui-linkbutton" onclick="submitAddForm()">确定</a>
+                <a href="javascript:void(0)"class="easyui-linkbutton" onclick="clearAddForm()">清空</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit_user_win" class="easyui-window" title="用户信息"
+         data-options="collapsible:false,minimizable:false,maximizable:false,iconCls:'icon-save',closed:true">
+        <div class="easyui-panel" style="width:400px">
+            <div style="padding:10px 60px 20px 60px">
+                <form id="feu" method="post">
+                    <table cellpadding="5">
+                        <tr>
+                            <td>用户名</td>
+                            <td><input class="easyui-textbox" type="text" name="userName"
+                                       data-options="required:true">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>标签</td>
+                            <td><input class="easyui-combobox" name="labels"
+                                       data-options="multiple:true,multiline:true,
+                                                url:'',
+                                                method:'get',
+                                                valueField:'id',
+                                                textField:'labelName',
+                                                panelHeight:'auto'"
+                                       style="width:200px;height:50px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>标签</td>
+                            <td><input class="easyui-combo" name="labels"
+                                       data-options="multiple:true,
+                                                url:'',
+                                                method:'get',
+                                                valueField:'id',
+                                                textField:'labelName',
+                                                panelHeight:'auto'"
+                                       style="width:200px;height:50px">
+                            </td>
+                        </tr>
+                    </table>
+
+                </form>
+            </div>
+            <div style="text-align:center;padding:5px">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitEditForm()">确定</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearEditForm()">清空</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            var p = $('#detail_info_list');
+
+            p.datagrid({
+                url:'',
+                rownumbers:true,
+                collapsible:true,
+                singleSelect: true,
+                method:'get',
+                pagination:true
+            });
+
+            var q = p.datagrid('getPager');
+            $(q).pagination({
+                beforePageText: '第',//页数文本框前显示的汉字
+                afterPageText: '页    共 {pages} 页',
+                displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+            });
+
+        });
+
+        function addUser(id){
+            $('#add_user_win').window('open');
+        }
+
+        function updateUser(id){
+            var user_selected = $('#'+id).datagrid('getSelected');
+            if(user_selected){
+                var editUserWin = $('#edit_user_win');
+                $('#feu').form('load',user_selected);
+                editUserWin.window('open');
+            }else{
+                $.messager.alert({
+                    title:'提示',
+                    msg:'请先选择一个用户',
+                    icon:'warning'
+                });
+            }
+        }
+
+        function removeUser(id){
+            var user_selected = $('#'+id).datagrid('getSelected');
+            if(user_selected){
+                if($.messager.confirm('您确认删除该用户？')) {
+                    var user_id = JSON.stringify(user_selected.id);
+                    $.ajax({
+                        url:'',
+                        type:'POST',
+                        contentType:'application/json',
+                        data:user_id,
+                        success:function(){
+                            $.messager.show({
+                                title:'提示',
+                                msg:'删除成功',
+                                showType:'slide',
+                                style:{
+                                    right:'',
+                                    top:document.body.scrollTop+document.documentElement.scrollTop,
+                                    bottom:''
+                                }
+                            });
+                        }
+                    });
+                }
+            }else{
+                $.messager.alert({
+                    title:'提示',
+                    msg:'请先选择一个用户',
+                    icon:'warning'
+                });
+            }
+        }
+
+        function submitAddForm(){
+
+        }
+
+        function submitEditForm(){
+
+        }
+
+        function clearAddForm(){
+            $('#fau').form('clear');
+        }
+
+        function clearEditForm(){
+            $('#feu').form('clear');
+        }
+
+        function imgFormatter(value,row,index){
+            return '<img src=' + value + '/>';
+        }
+    </script>
+</body>
+</html>
